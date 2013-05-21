@@ -23,6 +23,9 @@ end
 
 gem 'jquery-rails'
 
+gem 'blacklight'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -37,3 +40,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "unicode", :platforms => [:mri_18, :mri_19]
+gem "devise"
+gem "devise-guests", "~> 0.3"
+gem "bootstrap-sass"

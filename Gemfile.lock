@@ -33,6 +33,17 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1-java)
+    blacklight (4.2.0)
+      bootstrap-sass (~> 2.2.0)
+      kaminari (~> 0.13)
+      marc (>= 0.4.3, < 1.1)
+      nokogiri (~> 1.5)
+      rails (>= 3.2)
+      rsolr (~> 1.0.6)
+      sass-rails
+    bootstrap-sass (2.2.2.0)
+      sass (~> 3.2)
     bouncy-castle-java (1.5.0147)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -42,6 +53,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    devise (2.2.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
+    devise-guests (0.3.1)
+      devise
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -55,11 +73,17 @@ GEM
     jruby-openssl (0.8.8)
       bouncy-castle-java (>= 1.5.0147)
     json (1.8.0-java)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marc (0.5.0)
     mime-types (1.23)
     multi_json (1.7.3)
+    nokogiri (1.5.9-java)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -86,6 +110,8 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    rsolr (1.0.9)
+      builder (>= 2.1.2)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -108,16 +134,23 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.1)
+      rack (>= 1.0)
 
 PLATFORMS
   java
 
 DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
+  blacklight
+  bootstrap-sass
   coffee-rails (~> 3.2.1)
+  devise
+  devise-guests (~> 0.3)
   jquery-rails
   jruby-openssl
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   therubyrhino
   uglifier (>= 1.0.3)
+  unicode
