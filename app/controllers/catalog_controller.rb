@@ -8,12 +8,11 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
-      :qt => '',  ## 'search'
-      :rows => 10,
-      :q => '*:*',
-      :facet => 'true',
-#      :'facet.field' => 'cat',
-      :echoParams => 'all'
+      :qt => '/lucid',  ## 'search'
+      # :rows => 10,
+      # :q => '*:*',
+      # :facet => 'true',
+      # :echoParams => 'all'
     }
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
@@ -55,8 +54,8 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
-    config.add_facet_field 'cat', :label => 'Category'
-    config.add_facet_field 'manu_exact', :label => 'Manufacturer'
+    config.add_facet_field 'author_display', :label=> 'Author'
+    config.add_facet_field 'mimeType', :label=> 'Document Type'
 
     # config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
 

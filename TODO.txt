@@ -1,6 +1,1 @@
-* update readme to point to LWS and provide a simple curl or two to get a web crawl data source added and running
-
-* add facet fields
-
-* make it use /lucid (might require fix to Blacklight to allow a :qt='/lucid' to translate into /solr/collection1/lucid path request)
-  - or does LWS allow for qt's like that?
+* readme: provide a simple curl or two to get a web crawl data source added and running
