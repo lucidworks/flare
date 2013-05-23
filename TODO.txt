@@ -1,0 +1,4 @@
+- Dynamically show search results and document details from Solr response rather than BL fixed config
+
+- data source awareness
+  * serve file system crawled files (optional to turn off, warn big in readme/how-to)
