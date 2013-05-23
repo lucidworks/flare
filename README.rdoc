@@ -21,6 +21,14 @@ Blacklight is a open-source Ruby on Rails plugin bringing Solr capabilities to l
 is successfully deployed in many production applications around the world, and is backed by a
 vibrant and helpful community.
 
+== Quickstart
+
+Use this to add the LucidWorks website as a web data source to your starting collection:
+curl -H 'Content-type: application/json' -d '{"crawler":"lucid.aperture", "type":"web","url":"http://www.lucidworks.com/","crawl_depth":2, "name":"LucidWebsite"}' http://localhost:8888/api/collections/collection1/datasources
+
+And use this to start the crawl process for your starting collection:
+curl -X PUT 'http://localhost:8888/api/collections/collection1/datasources/all/job'
+
 == References
 
 * LucidWorks Search: http://www.lucidworks.com/products/lucidworks-search

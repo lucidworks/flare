@@ -1,1 +1,0 @@
-* readme: provide a simple curl or two to get a web crawl data source added and running
