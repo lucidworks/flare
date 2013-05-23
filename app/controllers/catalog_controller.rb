@@ -9,6 +9,7 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
       :qt => '/lucid',  ## 'search'
+      :req_type => 'main', # see http://docs.lucidworks.com/display/lweug/Constructing+Solr+Queries
       # :rows => 10,
       # :q => '*:*',
       # :facet => 'true',
@@ -54,8 +55,8 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
-    config.add_facet_field 'author_display', :label=> 'Author'
-    config.add_facet_field 'mimeType', :label=> 'Document Type'
+    # config.add_facet_field 'author_display', :label=> 'Author'
+    # config.add_facet_field 'mimeType', :label=> 'Document Type'
 
     # config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
 
