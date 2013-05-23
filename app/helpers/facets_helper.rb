@@ -8,11 +8,6 @@ module FacetsHelper
     @response.facet_counts["facet_fields"].keys
   end
   
-  def facet_field_labels
-    # Blacklight reports this as DEPRECATED
-    Hash[facet_field_names.map {|f| [f,f.titleize]}]
-  end
-  
   def facet_configuration_for_field(field)
     Blacklight::Configuration::FacetField.new(:field => field, :label => field.titleize)
   end
