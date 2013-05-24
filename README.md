@@ -40,6 +40,14 @@ Use this to add the LucidWorks website as a web data source to your starting col
 And use this to start the crawl process for your starting collection:
 
     curl -X PUT 'http://localhost:8888/api/collections/collection1/datasources/all/job'
+    
+## Running pre-built app
+
+If you've got a pre-built lws_blacklight.war, you can run it using:
+
+    java -jar lws_blacklight.war
+
+The current app configuration is set to use http://localhost:8888/solr/collection1 as the LucidWorks Search Solr server endpoint.
 
 # References
 
