@@ -49,6 +49,11 @@ If you've got a pre-built lws_blacklight.war, you can run it using:
 
 The current app configuration is set to use http://localhost:8888/solr/collection1 as the LucidWorks Search Solr server endpoint.
 
+When running the executable web application, it runs on port 8080, and is accessible at http://localhost:8080
+
+NOTE: The first request to the application can be quite slow currently (we'll explore ways to speed that up), so be patient.  Successive requests to
+the same application will be spiffy.
+
 # References
 
 * [LucidWorks Search](http://www.lucidworks.com/products/lucidworks-search)
