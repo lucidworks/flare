@@ -2,3 +2,11 @@
 
 - data source awareness
   * serve file system crawled files (optional to turn off, warn big in readme/how-to)
+  
+- Add unit tests for overridden BL functionality (like facets_helper stuff)
+
+- Clean up, trim down BL config in catalog_controller
+
+- Move catalog_controller to browse_controller or something like that... maybe lucid_controller?
+
+- Remove MARC (SolrMarc, etc) stuff
