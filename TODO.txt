@@ -10,3 +10,5 @@
 - Move catalog_controller to browse_controller or something like that... maybe lucid_controller?
 
 - Remove MARC (SolrMarc, etc) stuff
+
+- Fix http://localhost:3000/search_history
