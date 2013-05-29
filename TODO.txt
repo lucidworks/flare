@@ -11,4 +11,6 @@
 
 - Remove MARC (SolrMarc, etc) stuff
 
-- Fix http://localhost:3000/search_history
+- Create build file (Rake?  How about buildr!) to create warbled distro, and push to S3 for download via s3cmd.
+
+- Contribute back search history fix
