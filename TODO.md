@@ -1,5 +1,4 @@
 # Infrastructure
-- Move this to github.com/LucidWorks
 - Move TODO to issue tracker
 
 # Testing
