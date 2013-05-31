@@ -54,6 +54,26 @@ When running the executable web application, it runs on port 8080, and is access
 NOTE: The first request to the application can be quite slow currently (we'll explore ways to speed that up), so be patient.  Successive requests to
 the same application will be spiffy.
 
+# For developers
+
+    * git clone github/LucidWorks/lws_blacklight
+
+    * lws_blacklight git:(master) ✗ java -version
+    java version "1.7.0_13"
+    Java(TM) SE Runtime Environment (build 1.7.0_13-b20)
+    Java HotSpot(TM) 64-Bit Server VM (build 23.7-b01, mixed mode)
+    * lws_blacklight git:(master) ✗ export PATH=$HOME/bin/jruby-1.7.4/bin:$PATH
+    * lws_blacklight git:(master) ✗ jruby -v
+    jruby 1.7.4 (1.9.3p392) 2013-05-16 2390d3b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_13-b20 [darwin-x86_64]
+    * lws_blacklight git:(master) ✗ jruby -S rails server  
+    => Booting WEBrick
+    => Rails 3.2.13 application starting in development on http://0.0.0.0:3000
+    => Call with -d to detach
+    => Ctrl-C to shutdown server
+    [2013-05-31 14:26:44] INFO  WEBrick 1.3.1
+    [2013-05-31 14:26:46] INFO  ruby 1.9.3 (2013-05-16) [java]
+    [2013-05-31 14:26:46] INFO  WEBrick::HTTPServer#start: pid=744 port=3000  
+
 # References
 
 * [LucidWorks Search](http://www.lucidworks.com/products/lucidworks-search)
