@@ -10,6 +10,10 @@ class CatalogController < ApplicationController
     config.default_solr_params = { 
       :qt => '/lucid',
       :req_type => 'main', # see http://docs.lucidworks.com/display/lweug/Constructing+Solr+Queries
+      :fl => '*',
+      :hl => 'true',
+      :'hl.simple.pre' => '<b>',
+      :'hl.simple.post' => '</b>'
     }
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
@@ -67,11 +71,13 @@ class CatalogController < ApplicationController
 
     ## solr fields to be displayed in the index (search results) view
     ##   The ordering of the field names is the order of the display 
-    config.add_index_field 'description', :label => 'Description:' 
+    config.add_index_field 'body', :label => 'Body:', :highlight => true
+
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
     config.add_show_field 'description', :label => 'Description:' 
+    config.add_show_field 'body', :label => 'Body:' 
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
