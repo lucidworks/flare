@@ -1,7 +1,9 @@
 LwsBlacklight::Application.routes.draw do
   root :to => "catalog#index"
 
-  Blacklight.add_routes(self)
+  constraints :id => /.+/ do
+    Blacklight.add_routes(self)
+  end
 
   devise_for :users
 
