@@ -9,6 +9,8 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
       :qt => '/lucid',
+      :'hl.simple.pre' => '<b>',
+      :'hl.simple.post' => '</b>',
       :req_type => 'main', # see http://docs.lucidworks.com/display/lweug/Constructing+Solr+Queries
     }
 
@@ -67,7 +69,7 @@ class CatalogController < ApplicationController
 
     ## solr fields to be displayed in the index (search results) view
     ##   The ordering of the field names is the order of the display 
-    config.add_index_field 'description', :label => 'Description:' 
+    # config.add_index_field 'body', :label => 'Body:'  # this was made unnecessary by changes to BlacklightHelper
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
