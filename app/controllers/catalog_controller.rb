@@ -12,6 +12,7 @@ class CatalogController < ApplicationController
       :'hl.simple.pre' => '<b>',
       :'hl.simple.post' => '</b>',
       :req_type => 'main', # see http://docs.lucidworks.com/display/lweug/Constructing+Solr+Queries
+      :rows => 10
     }
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
