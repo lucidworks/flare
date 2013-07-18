@@ -47,12 +47,21 @@
   }
 }
 
+#navbar-container {
+  width: 86%;
+}
+
+.input-append{
+  width:55%;
+}
+
 #search_field {
 	width: 95px;
 }
 
 #searchbar {
   padding-top:5px;
+
 }
 
 .search-query-form {
@@ -67,6 +76,14 @@
 
 .search_field {
   margin-right: 0.5em;
+}
+
+.search_q {
+  width: 100%;
+}
+
+#link-box {
+  float: right;
 }
 
 .util-links-login, .util-links-other {
