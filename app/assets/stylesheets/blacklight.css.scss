@@ -1,4 +1,12 @@
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
+
+@import 'lws_blacklight/lws_blacklight_defaults';
+
 @import 'blacklight/blacklight';
+@import 'lws_blacklight/catalog';
+@import 'lws_blacklight/header';
+@import 'lws_blacklight/footer';
+@import 'lws_blacklight/layout';
+@import 'lws_blacklight/facets';

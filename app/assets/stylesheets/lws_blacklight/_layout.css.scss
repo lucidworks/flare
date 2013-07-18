@@ -1,0 +1,18 @@
+/* Generic layout stuff */
+.hide 
+{
+  display:none
+}
+  
+/* This provides a fixed distance between the header and the main content */
+
+body {
+  padding-top: 5%;
+  height:87%;
+  position:relative;
+
+}
+
+.container{
+	margin-left:100px;
+}

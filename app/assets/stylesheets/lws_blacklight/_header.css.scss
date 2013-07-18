@@ -1,0 +1,168 @@
+ F /*
+ The main logo image for the Blacklight instance
+*/
+
+
+.navbar .brand {
+  width: 150px;
+  background:transparent asset_url($logo_image,image) no-repeat top left;
+  display: inline-block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right:0;
+  margin-right:20px;
+  padding-left: 0;
+}
+
+
+/*
+  Header bar at top (Bootstrap nav-bar)
+*/
+
+/* This ensures that any tool pop-up goes infront of the header */
+.navbar-fixed-top {
+  z-index:1000;
+  position:absolute;
+}
+
+
+#header-navbar-fixed-top {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  min-width: 395px;
+
+  .navbar-inner {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+
+  /*
+    Search form is in the header...
+  */
+  .desktop-search-bar {
+    opacity: 1 !important;
+    padding-top: 0.5em;
+
+  }
+}
+
+#search_field {
+	width: 95px;
+}
+
+#searchbar {
+  padding-top:5px;
+}
+
+.search-query-form {
+  margin-bottom: 0;
+}
+
+
+
+.btn.search-btn {
+  margin-top: 0;
+}
+
+.search_field {
+  margin-right: 0.5em;
+}
+
+.util-links-login, .util-links-other {
+  font-size: 0.9em;
+  direction:rtl;
+}
+
+.ajax_form
+{
+  margin-bottom: 0;
+}
+
+#librarian_view
+{
+	left:-17%;
+	text-align:left;
+	top:10%;
+	width:700px;
+}
+
+#marc_view
+{
+	padding:5px;
+	text-align:left;
+
+  .field
+  {
+    border-bottom: $marc_item_separator;
+    clear:both;
+  }
+
+  .ind1, .ind2
+  {
+    display:inline;
+    padding:0 5px;
+  }
+
+  .subfields
+  {
+    padding-left:5em;
+  }
+
+  .tag_ind
+  {
+    float:left;
+  }
+}
+
+.constraints-container {
+  @extend .well;
+  margin: 4px 0 0 300px;
+  padding: 10px 8px 6px;
+  height: 30px;
+  width: 73%;
+}
+
+span.constraints-label {
+  font-weight:bold;
+}
+
+.appliedFilter
+{
+	background: $constraint_bg_color;
+	border:1px solid $constraint_border_color;
+	display:inline-block;
+	margin-bottom:0.66em;
+	margin-right:0.33em;
+	padding:3px 3px 3px 1.5em;
+  padding-right:50px;
+	position:relative;
+  @include border-radius(15px 15px 15px 15px);
+
+  .btnRemove
+  {
+    background:asset_url('blacklight/remove.gif', image) no-repeat center center;
+    border-bottom:none;
+    border-left:1px solid $constraint_border_color;
+    display:block;
+    height:100%;
+    outline:none;
+    position:absolute;
+    right:0;
+    text-indent:-99999px;
+    top:0;
+    width:32px;
+    z-index:5;
+  }
+
+  .btnRemove:active,.btnRemove:focus
+  {
+    border:1px dotted $constraint_border_active_color;
+  }
+
+  .filterName
+  {
+    background:asset_url('blacklight/separator.gif',image) no-repeat right center;
+    padding-right:14px;
+  }
+}
