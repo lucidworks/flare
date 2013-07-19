@@ -2,11 +2,21 @@
     padding-bottom: $footer_height;
 }
 
+#left-bar {
+  width: 72%;
+  float: left;
+}
+
+#right-bar {
+  width: 21%;
+  float: right;
+}
+
 #sidebar{
   float:right;
   position:relative;
-  width:21%;
-  margin-right:7%;
+  margin: 0;
+  padding: 0;
 }
 
 /*.has_constraints {
@@ -38,7 +48,6 @@
 {
 	margin-bottom:1em;
 	margin-top:0em;
-  width:63%;
   float:left;
 
   .documentHeader
@@ -84,11 +93,6 @@
 {
 	display: inline-block;
 }
-
-.pagination {
-  text-align: left ;
-}
-
 
 .solrQuery
 {
@@ -156,9 +160,7 @@ span.page a,span.page.current
   background-color: transparent;
   border: none;
   box-shadow: none;
-  width: 63%;
-  padding-left: 0px;
-  padding-bottom: 0px;
+  padding: 19px 0 0 0;
 }
 
 #sortAndPerPage .dropdown-toggle {
@@ -187,4 +189,9 @@ span.page a,span.page.current
 
 #email_form {
   @extend .span6;
+}
+
+#pagination-container {
+  width: 100%;
+  margin: 0;
 }

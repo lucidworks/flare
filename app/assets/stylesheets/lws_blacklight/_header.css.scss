@@ -30,6 +30,8 @@
 #header-navbar-fixed-top {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   min-width: 395px;
+  /*margin-left: 7%;
+  margin-right: 7%;*/
 
   .navbar-inner {
     padding-top: 0.5em;
@@ -48,11 +50,17 @@
 }
 
 #navbar-container {
+  margin-left: 7%;
+  margin-right: 7%;
   width: 86%;
 }
 
+.search-query-form {
+  margin-left: 10%;
+}
+
 .input-append{
-  width:55%;
+  width:67%;
 }
 
 #search_field {
@@ -74,6 +82,13 @@
   margin-top: 0;
 }
 
+/*
+.btn-primary {
+  background-image: linear-gradient(to bottom, rgb(34,141,231), rgb(84,171,245));
+  background-color: rgb(59,156,238);
+  color: rgb(255,229,171); 
+}
+*/
 .search_field {
   margin-right: 0.5em;
 }
