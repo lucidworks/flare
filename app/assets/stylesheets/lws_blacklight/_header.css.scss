@@ -36,6 +36,7 @@
   .navbar-inner {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    background-image: none;
   }
 
 
@@ -82,13 +83,12 @@
   margin-top: 0;
 }
 
-/*
-.btn-primary {
-  background-image: linear-gradient(to bottom, rgb(34,141,231), rgb(84,171,245));
+#search {
+  background-image: linear-gradient(to top, rgb(0,97,179), rgb(84,171,245));
   background-color: rgb(59,156,238);
-  color: rgb(255,229,171); 
+  color: white; 
 }
-*/
+
 .search_field {
   margin-right: 0.5em;
 }

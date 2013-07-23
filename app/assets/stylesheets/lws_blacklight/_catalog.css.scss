@@ -32,6 +32,12 @@
   padding-left: 1em;
 }
 
+.btn {
+  background-color: F2F2F2;
+  background-image: none;
+  border-color: #D1D1D1;
+}
+
 #document
 {
 	margin-top:1em;
@@ -48,7 +54,6 @@
 {
 	margin-bottom:1em;
 	margin-top:0em;
-  float:left;
 
   .documentHeader
   {
@@ -167,6 +172,13 @@ span.page a,span.page.current
   cursor: pointer;
 }
 
+.link-expand {
+  float: right;
+  bottom: 0;
+  color: rgb(0,97,179);
+}
+
+
 .no-js #sortAndPerPage {
   & {
     @extend .clearfix;
@@ -194,4 +206,8 @@ span.page a,span.page.current
 #pagination-container {
   width: 100%;
   margin: 0;
+}
+
+.hide {
+  display: none;
 }
