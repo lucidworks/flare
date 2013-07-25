@@ -72,6 +72,10 @@
   }
 }
 
+.document-body {
+  margin-left: 10px;
+}
+
 #documents .documentFunctions
 {
 	float:right;
@@ -196,7 +200,8 @@ span.page a,span.page.current
 
 .index_title {
   float: left;
-  max-width: 414px; //span7; figure out how to calculate this correctly?
+  font-size: 16px;
+  max-width:70%;
 }
 
 #email_form {
