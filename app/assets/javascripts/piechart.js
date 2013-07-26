@@ -1,6 +1,6 @@
-function piechart(facet_name)
+function piechart(dataObject)
 {
-  $("#d3charts").empty();
+
   var width = 480,
       height = 250,
       radius = Math.min(width, height) / 2;
@@ -24,8 +24,12 @@ function piechart(facet_name)
       .attr("height", height)
     .append("g")
       .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");
+      //THIS CALL SHOULD TAKE THE JAVASCRIPT DATA ARRAY AND MAKE THE GRAPH
+      //NO .csv SHOULD NEED TO BE CALLED
 
-  d3.csv("assets/" + facet_name + "_data.csv", function(error, data) {
+ // d3.json(dataObject, function(error, data) {
+
+  data = JSON.parse(dataObject);
 
     data.forEach(function(d) {
       d.hits = +d.hits;
@@ -38,13 +42,11 @@ function piechart(facet_name)
 
     g.append("path")
         .attr("d", arc)
-        .style("fill", function(d) { return color(d.data.data_source); });
+        .style("fill", function(d) { return color(d.data.facetName); });
 
     g.append("text")
         .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
         .attr("dy", ".35em")
         .style("text-anchor", "middle")
-        .text(function(d) { return d.data.data_source; });
-
-  });
+        .text(function(d) { return d.data.facetName; });
 }

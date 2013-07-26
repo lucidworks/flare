@@ -23,14 +23,17 @@
 
      </div>
 
-    <div id="right-bar">
-      <div id="sidebar" class="span3">
-        <%= render :partial=>'facets' %>
+      <div id="right-bar">
+        <div id="sidebar" class="span3">
+          <%= render :partial=>'facets' %>
+          
+        <div id="charts">
+          <%= render 'charts' %>
+        </div>
+        
       </div><!--/well -->
 
-      <div id="charts">
-        <%= render 'charts' %>
-      </div>
+
 
     </div> <!--Close right-bar -->
 
