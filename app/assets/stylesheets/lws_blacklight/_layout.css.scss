@@ -13,6 +13,24 @@ body {
 
 }
 
-.container{
-	margin-left:100px;
+a {
+	color: rgb(46,67,119)
+}
+
+#main-container {
+	width:86%;
+	margin-left: 7%;
+	margin-right: 7%
+}
+
+[class*="span"] {
+	margin: 0;
+}
+
+.row {
+	margin: 0;
+}
+
+#content {
+	width:100%
 }

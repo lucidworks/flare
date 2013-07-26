@@ -2,9 +2,21 @@
     padding-bottom: $footer_height;
 }
 
+#left-bar {
+  width: 72%;
+  float: left;
+}
+
+#right-bar {
+  width: 21%;
+  float: right;
+}
+
 #sidebar{
   float:right;
   position:relative;
+  margin: 0;
+  padding: 0;
 }
 
 /*.has_constraints {
@@ -18,6 +30,12 @@
 
 #sort-dropdown {
   padding-left: 1em;
+}
+
+.btn {
+  background-color: F2F2F2;
+  background-image: none;
+  border-color: #D1D1D1;
 }
 
 #document
@@ -35,7 +53,7 @@
 #documents
 {
 	margin-bottom:1em;
-	margin-top:1em;
+	margin-top:0em;
 
   .documentHeader
   {
@@ -54,6 +72,10 @@
   }
 }
 
+.document-body {
+  margin-left: 10px;
+}
+
 #documents .documentFunctions
 {
 	float:right;
@@ -62,7 +84,14 @@
   .bookmark_toggle
   {
     display:inline;
+    margin-right: -21%;
+    padding-right: 0px;
   }
+}
+
+.documentFunctions {
+  direction: rtl;
+  margin-right: 0px;
 }
 
 #sidebar form {
@@ -73,11 +102,6 @@
 {
 	display: inline-block;
 }
-
-.pagination {
-  text-align: left ;
-}
-
 
 .solrQuery
 {
@@ -142,11 +166,22 @@ span.page a,span.page.current
 
 #sortAndPerPage {
   @extend .well;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 19px 0 0 0;
 }
 
 #sortAndPerPage .dropdown-toggle {
   cursor: pointer;
 }
+
+.link-expand {
+  float: right;
+  bottom: 0;
+  color: rgb(0,97,179);
+}
+
 
 .no-js #sortAndPerPage {
   & {
@@ -165,9 +200,19 @@ span.page a,span.page.current
 
 .index_title {
   float: left;
-  max-width: 414px; //span7; figure out how to calculate this correctly?
+  font-size: 16px;
+  max-width:70%;
 }
 
 #email_form {
   @extend .span6;
+}
+
+#pagination-container {
+  width: 100%;
+  margin: 0;
+}
+
+.hide {
+  display: none;
 }

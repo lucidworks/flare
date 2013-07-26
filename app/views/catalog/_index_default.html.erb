@@ -1,0 +1,48 @@
+<%# partial to display solr fields related to the search query -%>
+<div class="document-information">
+
+	<%#Ideally this would find the body/description/blurb about the search term and dispay that information -%>
+
+  	<%# Load the body field, if there is one and display it.  If there is not one, it will look for the description field and display that instead.  If neither field is present, display "There is no description to display for this item" -%>
+
+  		<div class = "document-body">
+		  	<%# Load the body field, if there is one and display it -%>
+			<% index_fields(document).each do |solr_fname, field| -%>
+				<% if (render_index_field_label document, :field => 
+				solr_fname ) == "body" -%>
+					<% if should_render_index_field? document, field %>
+
+						<div class = "document-body">
+							<%=render_index_field_value document, 
+							:field =>solr_fname %>
+						</div>
+					<% end -%>
+				<% end -%>
+			<% end -%>
+  			</p>
+  		</div>
+
+	<%#This should create a footer with all of the meta-search information in it -%>
+
+	<div class = "document-footer>">
+		
+		<div id = "document-details" class = "hide")>
+		<% index_fields(document).each do |solr_fname, field| -%>
+
+			<% if should_render_index_field? document, field %>
+			<dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label document, :field =>
+				solr_fname %></dt>
+			<dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value document, :field =>
+				solr_fname %></dd>
+			<% end -%>
+		<% end -%>
+		</div>	<!-- /document-details -->
+
+		<a href ="#" class = "link-expand" 
+		onclick = "toggle('document-details')"> More Info </a>
+
+
+	</div>	<!-- /document-footer -->
+
+
+</div>
