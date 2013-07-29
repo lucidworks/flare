@@ -22,11 +22,15 @@
   			</p>
   		</div>
 
+  		<!--This is a link to expand/hide the data in the footer -->
+  		<a href ="#" class = "link-expand" > More </a>
+
 	<%#This should create a footer with all of the meta-search information in it -%>
 
 	<div class = "document-footer>">
 		
 		<div id = "document-details" class = "hide")>
+		</br>
 		<% index_fields(document).each do |solr_fname, field| -%>
 
 			<% if should_render_index_field? document, field %>
@@ -38,8 +42,7 @@
 		<% end -%>
 		</div>	<!-- /document-details -->
 
-		<a href ="#" class = "link-expand" 
-		onclick = "toggle('document-details')"> More Info </a>
+
 
 
 	</div>	<!-- /document-footer -->
