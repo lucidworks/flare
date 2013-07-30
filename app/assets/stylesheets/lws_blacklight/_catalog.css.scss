@@ -17,6 +17,7 @@
   position:relative;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 /*.has_constraints {
@@ -169,7 +170,11 @@ span.page a,span.page.current
   background-color: transparent;
   border: none;
   box-shadow: none;
-  padding: 19px 0 0 0;
+  padding: 0;
+}
+
+.dropdown {
+  margin-top: 4px;
 }
 
 #sortAndPerPage .dropdown-toggle {
