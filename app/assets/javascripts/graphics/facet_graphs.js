@@ -6,12 +6,13 @@ $(".twiddle").click(function(e) {
 
 };
 
+//Draw or close the charts when toggled
 function toggle_chart(node) {
 	//If the facet was opened, draw the piechart
 	if ($(node).hasClass("twiddle-open")) {
 		var parent = $(node).parent();
 		var JsonObj = formatForGraph(parent);
-		piechart(JsonObj);
+		pieGraph(JsonObj);
 	}
 	//If the facet was closed, clear the graph
 	else {
@@ -19,7 +20,8 @@ function toggle_chart(node) {
 	}
 };
 
-
+//This is the area to change how the information is fed into the graph
+//This is where you will customize/build off from
 function formatForGraph(node) {
 
 	var facetName = ($(node).children().first().text());
@@ -40,7 +42,9 @@ function formatForGraph(node) {
 	return JsonObj;
 };
 
-
+//deletes all charts in #d3charts
+//Ideally this should take in a node and delete just the chart associated
+//with that node
 function clearCharts() {
 	$("#d3charts").empty();
 };

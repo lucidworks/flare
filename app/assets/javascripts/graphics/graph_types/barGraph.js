@@ -1,3 +1,4 @@
+//Takes in a JSON object and 
 function barGraph(dataObject) {
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -21,7 +22,10 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(formatPercent);
 
-var svg = d3.select("body").append("svg")
+    var div = d3.select("#d3charts").append("div")
+      .attr("id", "d3bar")
+
+var svg = d3.select("#d3bar").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -32,8 +36,8 @@ var svg = d3.select("body").append("svg")
   data = JSON.parse(dataObject);
 
 //letter and frequency should be changed to the key and value pair names of the json obj
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+  x.domain(data.map(function(d) { return d.key; }));
+  y.domain([0, d3.max(data, function(d) { return d.valueOfKey; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -48,19 +52,19 @@ var svg = d3.select("body").append("svg")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("valueOfKey");
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
+      .attr("x", function(d) { return x(d.key); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+      .attr("y", function(d) { return y(d.valueOfKey); })
+      .attr("height", function(d) { return height - y(d.valueOfKey); });
 }
 
 function type(d) {
-  d.frequency = +d.frequency;
+  d.valueOfKey = +d.valueOfKey;
   return d;
 }
