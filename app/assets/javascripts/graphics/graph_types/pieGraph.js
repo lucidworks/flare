@@ -1,4 +1,4 @@
-function piechart(dataObject)
+function pieGraph(dataObject)
 {
 
   var width = 480,
