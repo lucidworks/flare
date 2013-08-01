@@ -3,9 +3,10 @@
 //	build custom calls
 function ajax_query() {
 	var query = getQuery();
-	$.getJSON("http://localhost:8888/solr/lucid/?q=" + query + "&wt=json&json.wrf=?&indent=true&mlt=true&mlt.fl=id,keywords", function(result) {
-	})
-	return result;
+	var queryString = "http://localhost:8888/solr/lucid/?q=" + query + "&wt=json&json.wrf=?&indent=true&mlt=true&mlt.fl=id,keywords";
+	return $.getJSON(queryString, function(result) {
+		formatForBarGraph(result);
+	});
 };
 
 

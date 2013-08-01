@@ -1,0 +1,47 @@
+HIGH PRIORITY:
+	
+	Find where ruby handles the query from LWS and manipulate THAT instead of the AJAX call
+		-> Find where we can query to, if the direct solr queries wouldn't be allowed
+
+	Need some form of extensibility to AJAX
+		-> Right now in app/assets/graphics/ajax_call it does not return an object, it simply calls the graph function inside of the anonymous callback function
+			->This should be built out so it just returns the JSON object of the desired query and allow some easy configuration
+
+	Have some sort of home page, whatever it may be
+
+
+
+MID PRIORITY
+
+	Expose Find Similar (moreLikeThis) functionality
+
+	Expose the landingPage functionality (added in apps/views/catalog/, but just as dummy holder)
+		->in apps/helper/catalogHelper the logic to find it is implemented
+
+
+	Constraints should be re-implemented.  They were turned off because they were ugly as is.  This should fix the History/login inability as this product stands
+
+
+	Add more Graph types (should be easier with better AJAX)
+
+
+	Add some logic on text Display.  Right now the results are just the body field of the query
+		-> views/catalog/_index_default   should have some logic to display body or description or id (or something like that)
+
+		->Related to this, currently the body is displayed with some horrendous loop right now
+
+
+	When you zoom in/out, css just DIES.  Absolute values should be changed to relative values.
+		-> px to em values and px to % values.
+			-> Responsive css design
+
+
+LOW PRIORITY
+
+Graphs should remain ordered when opened and not all close upon one closing
+	-Create divs based on the facet name and delete only that facet
+		->Create divIfNotExist(nodeToCheck, nameOfID)
+
+Fix Login/History links
+
+Footer can float strangely still -> re-examine the footer if not full page results
