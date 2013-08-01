@@ -13,14 +13,14 @@ function tab_view(node) {
 };
 
 function display_off() {
-	$('#content').children().each(function(){
-		$(this).css('display', 'none');
+	$('#right-bar').children().each(function(){
+		$(this).addClass("hide");
 	});
 };
 
 function display_tab(node) {
 	var open_tab = $(node).attr('class');
-	$('#'+open_tab).css('display','');
+	$('#'+open_tab).toggleClass("hide");
 }
 
 

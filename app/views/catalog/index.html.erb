@@ -1,19 +1,24 @@
-  <div id="tabs">
-    <ul>
-      <li class="tab"><a class="search-tab" href="#">
-        Search Results</a></li>
-      <li class="tab"><a class="graph-tab" href="#">
-        Graphic Results</a></li>
-    </ul>
-  </div>    <!--Close Tabs -->
-
-<div id="content" class="span9">
-
-  <div id="search-tab">
     <% unless has_search_parameters? %>
 	    <%# if there are no input/search related params, display the "home" partial -%>
 	    <%= render 'home' %>
     <% else %>
+
+          
+      <div id="content" class="span9">
+
+        <div id="tabs">
+          <ul>
+            <li class="tab"><a class="search-tab" href="#">
+              Search Results</a></li>
+            <li class="tab"><a class="graph-tab" href="#">
+              Graphic Results</a></li>
+          </ul>
+        </div>    <!--Close Tabs -->
+
+          <% if has_landing_page? %>
+            <%#If there is a landing page hit, display it %>
+            <%= render :partial => 'landing_page' %>
+          <% end %>
 
       <h2 class="hide-text top-content-title"><%= t('blacklight.search.search_results_header') %></h2>
 
@@ -45,10 +50,22 @@
 
       <div id="right-bar">
         
-        <%= render 'sort_and_per_page' %>
+        <div id="search-tab">
 
-        <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
-        <%= render_document_index %>
+          <%= render 'sort_and_per_page' %>
+
+          <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
+          <%= render_document_index %>
+
+        </div> <!-- close search tab -->
+
+        <div id="graph-tab" class="hide">
+          <div id="d3container">
+
+          </div> <!-- close d3container -->
+          
+          THIS TOTALLY WORKS
+        </div>    <!-- close graph tab-->
 
     </div> <!--Close right-bar -->
 
@@ -56,11 +73,5 @@
 
 
     <% end %>
-
-  </div> <!-- close search tab -->
-
-  <div id="graph-tab">
-      THIS TOTALLY WORKS
-  </div>    <!-- close graph tab-->
 
 </div>

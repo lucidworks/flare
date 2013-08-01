@@ -24,8 +24,6 @@ function pieGraph(dataObject)
       .attr("height", height)
     .append("g")
       .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");
-      //THIS CALL SHOULD TAKE THE JAVASCRIPT DATA ARRAY AND MAKE THE GRAPH
-      //NO .csv SHOULD NEED TO BE CALLED
 
  // d3.json(dataObject, function(error, data) {
 

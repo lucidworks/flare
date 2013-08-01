@@ -22,7 +22,7 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(formatPercent);
 
-    var div = d3.select("#d3charts").append("div")
+    var div = d3.select("#d3container").append("div")
       .attr("id", "d3bar")
 
 var svg = d3.select("#d3bar").append("svg")
@@ -36,8 +36,8 @@ var svg = d3.select("#d3bar").append("svg")
   data = JSON.parse(dataObject);
 
 //letter and frequency should be changed to the key and value pair names of the json obj
-  x.domain(data.map(function(d) { return d.key; }));
-  y.domain([0, d3.max(data, function(d) { return d.valueOfKey; })]);
+  x.domain(data.map(function(d) { return d.barName; }));
+  y.domain([0, d3.max(data, function(d) { return d.hits; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -52,19 +52,24 @@ var svg = d3.select("#d3bar").append("svg")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("valueOfKey");
+      .text("hits");
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.key); })
+      .attr("x", function(d) { return x(d.barName); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.valueOfKey); })
-      .attr("height", function(d) { return height - y(d.valueOfKey); });
+      .attr("y", function(d) { return y(d.hits); })
+      .attr("height", function(d) { return height - y(d.hits); });
 }
 
 function type(d) {
-  d.valueOfKey = +d.valueOfKey;
+  d.hits = +d.hits;
   return d;
+}
+
+function xValueName(uName) {
+  //Format the name here somehow
+  return false;
 }

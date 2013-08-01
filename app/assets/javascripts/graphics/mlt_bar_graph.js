@@ -1,3 +1,4 @@
+
 //Add onclick function for the AJAX link
 function addBarToggle() {
 $('#AJAX-info').click(function(e) {
@@ -11,9 +12,6 @@ $('#AJAX-info').click(function(e) {
 function drawBarGraph(node) {
 	
 	var jsonObj = ajax_query();
-	var formattedJSON = formatForBarGraph(jsonObj)
-	barGraph(jsonObj);
-	};
 };
 
 
@@ -23,18 +21,20 @@ function formatForBarGraph(uJSON) {
 
 	var JsonObj = new Object();
 	JsonObj = [];
-	var dataParent = $(node).children().last();
+	var mlt = uJSON.moreLikeThis;
+	var keyName, numHits = "";
 
-	dataParent.children('li').each(function() {
-		var facet_name = $(this).children().first().text();
-		var facet_value = $(this).children().last().text();
-		var x = {}
-		x.facetName = facet_name;
-		x.hits = facet_value;
+	for( var key in mlt) {
+		keyName = key;
+		numHits = mlt[key].numFound;
+		var x = {};
+		x.barName = keyName;
+		x.hits = numHits;
 		JsonObj.push(x);
-	})
+	}
+
 	JsonObj = JSON.stringify(JsonObj);
-	return JsonObj;
+	barGraph(JsonObj);
 };
 
 	//for (var key in mlt) {
