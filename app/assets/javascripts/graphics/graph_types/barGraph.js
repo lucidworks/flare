@@ -20,7 +20,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .tickFormat(formatPercent);
+   // .tickFormat(formatPercent);
 
     var div = d3.select("#d3container").append("div")
       .attr("id", "d3bar")
@@ -36,29 +36,33 @@ var svg = d3.select("#d3bar").append("svg")
   data = JSON.parse(dataObject);
 
 //letter and frequency should be changed to the key and value pair names of the json obj
-  x.domain(data.map(function(d) { return d.barName; }));
+  x.domain(data.map(function(d) { return d.assetName; }));
   y.domain([0, d3.max(data, function(d) { return d.hits; })]);
 
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis)
+    .append("text")
+      .attr("x", 6)
+      .attr("transform", "rotate(-90)")
+      .text(function(d) { return xValueName(d); })
 
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
+      //.attr("transform", "rotate(-90)")
       .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("hits");
+      .attr("dy", "-1em")
+      //.style("text-anchor", "end")
+      .text("Document Relevancy");
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.barName); })
+      .attr("x", function(d) { return x(d.assetName); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.hits); })
       .attr("height", function(d) { return height - y(d.hits); });
@@ -72,4 +76,10 @@ function type(d) {
 function xValueName(uName) {
   //Format the name here somehow
   return false;
+  var textVal = d.assetName;
+  textVal = textVal.substr(10,20);
+  return textVal;
 }
+
+
+

@@ -28,7 +28,7 @@ function formatForBarGraph(uJSON) {
 		keyName = key;
 		numHits = mlt[key].numFound;
 		var x = {};
-		x.barName = keyName;
+		x.assetName = keyName;
 		x.hits = numHits;
 		JsonObj.push(x);
 	}

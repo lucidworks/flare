@@ -13,14 +13,14 @@ HIGH PRIORITY:
 
 MID PRIORITY
 
+
+	Constraints should be re-implemented.  They were turned off because they were ugly as is.  This should fix the History/login inability as this product stands
+
+
 	Expose Find Similar (moreLikeThis) functionality
 
 	Expose the landingPage functionality (added in apps/views/catalog/, but just as dummy holder)
 		->in apps/helper/catalogHelper the logic to find it is implemented
-
-
-	Constraints should be re-implemented.  They were turned off because they were ugly as is.  This should fix the History/login inability as this product stands
-
 
 	Add more Graph types (should be easier with better AJAX)
 
