@@ -34,7 +34,7 @@ function formatForGraph(node) {
 		var facet_name = $(this).children().first().text();
 		var facet_value = $(this).children().last().text();
 		var x = {}
-		x.facetName = facet_name;
+		x.assetName = facet_name;
 		x.hits = facet_value;
 		JsonObj.push(x);
 	})
