@@ -7,11 +7,14 @@ function ajax_query() {
 	return $.getJSON(queryString, function(result) {
 		formatForBarGraph(result);
 	});
-};
+};	//Known issue: This performs all the action in the anonymous function
+//Ideally this would just return the jquery object from the ajax call
+//And be manipulatable
 
 
 //Pulls URL and finds a substring from 'q=' to a & or end of string
 //Also will take off a '#' if it is on the end of a string
+//	This should really get the query term from w/in the ruby/internal code
 function getQuery() {
 	var fullURL = window.location.href.toString();
 
@@ -31,4 +34,13 @@ function getQuery() {
 	//replaces +'s with spaces for multi-word queries
 	query = query.replace("+", " ");
 	return query;
+};
+
+//To add new graphs, 
+function graphRoute(jsonObj) {
+	var graphType = $("#graphTypeDD").value;
+	if (graphType == "bar")
+		formatForBarGraph(jsonObj);
+	else (graphType == "pie")
+		formatForPieGraph(jsonObj);
 };

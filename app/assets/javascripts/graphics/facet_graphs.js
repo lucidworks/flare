@@ -11,7 +11,7 @@ function toggle_chart(node) {
 	//If the facet was opened, draw the piechart
 	if ($(node).hasClass("twiddle-open")) {
 		var parent = $(node).parent();
-		var JsonObj = formatForGraph(parent);
+		var JsonObj = formatForPieGraph(parent);
 		pieGraph(JsonObj);
 	}
 	//If the facet was closed, clear the graph
@@ -22,7 +22,7 @@ function toggle_chart(node) {
 
 //This is the area to change how the information is fed into the graph
 //This is where you will customize/build off from
-function formatForGraph(node) {
+function formatForPieGraph(node) {
 
 	var facetName = ($(node).children().first().text());
 
