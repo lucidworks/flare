@@ -8,18 +8,19 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
 var formatPercent = d3.format(".0%");
 
 var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+    .rangeRoundBands([0, width], .1)
+    .domain(function(d) {return d.assetName});
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("bottom");
+    .orient("bottom")
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .orient("left")
+    .orient("left");
    // .tickFormat(formatPercent);
 
     var div = d3.select("#d3container").append("div")
@@ -35,7 +36,8 @@ var svg = d3.select("#d3bar").append("svg")
 
   data = JSON.parse(dataObject);
 
-//letter and frequency should be changed to the key and value pair names of the json obj
+//letter and frequency should be changed to the key and 
+//value pair names of the json obj
   x.domain(data.map(function(d) { return d.assetName; }));
   y.domain([0, d3.max(data, function(d) { return d.hits; })]);
 
@@ -43,10 +45,10 @@ var svg = d3.select("#d3bar").append("svg")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    .append("text")
+ /*   .append("text")
       .attr("x", 6)
       .attr("transform", "rotate(-90)")
-      .text(function(d) { return xValueName(d); })
+      .text(function(d) { return xValueName(d); })*/
 
   svg.append("g")
       .attr("class", "y axis")
@@ -75,8 +77,8 @@ function type(d) {
 
 function xValueName(uName) {
   //Format the name here somehow
-  return false;
-  var textVal = d.assetName;
+  var textVal = "";
+  textVal = uName;
   textVal = textVal.substr(10,20);
   return textVal;
 }

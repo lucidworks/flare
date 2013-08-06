@@ -33,10 +33,6 @@
 
         <div id="sidebar" class="span3">
           <%= render :partial=>'facets' %>
-          
-        <div id="charts">
-          <%= render 'charts' %>
-        </div>
         
       </div><!--/well -->
 
@@ -62,9 +58,13 @@
         <div id="graph-tab" class="hide">
           <div id="d3container">
 
+            <div id="charts">
+             <%= render 'charts' %>
+            </div>
+
           </div> <!-- close d3container -->
           
-          THIS TOTALLY WORKS
+          
         </div>    <!-- close graph tab-->
 
     </div> <!--Close right-bar -->
