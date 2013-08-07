@@ -44,6 +44,8 @@ GEM
       sass-rails
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
+    bootswatch-rails (0.5.0)
+      railties (>= 3.1)
     bouncy-castle-java (1.5.0147)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -154,6 +156,7 @@ DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   blacklight
   bootstrap-sass
+  bootswatch-rails
   coffee-rails (~> 3.2.1)
   devise
   devise-guests (~> 0.3)

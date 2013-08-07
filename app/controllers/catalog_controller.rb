@@ -18,6 +18,7 @@ class CatalogController < ApplicationController
       :'hl.simple.pre' => '<b>',
       :'hl.simple.post' => '</b>',
       :req_type => 'main', # see http://docs.lucidworks.com/display/lweug/Constructing+Solr+Queries
+      :'hl.fragsize' => 250,
       :rows => 10
     }
 

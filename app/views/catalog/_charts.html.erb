@@ -1,0 +1,13 @@
+<% if has_facet_values? %>
+
+	<!--<a href="#" class="chart_link" onclick="piechart('data_source')"> Pie Chart </a>
+	<a href="#" class="chart_link"> Bar Graph </a>
+	<a href="#" class="chart_link"> Heat Map </a> -->
+
+	<%= render :partial => 'type_of_graph_widget' %>
+	<%= render :partial => 'graph_information_widget' %>
+
+	<div id = "d3charts">
+	</div>
+
+<% end %>
