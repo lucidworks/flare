@@ -1,0 +1,15 @@
+UI EXPERIENCE
+	Search Results
+		facets + sort + bookmarks + highlights
+	Graph Results
+		Graph Types -> Choose bar/pie.  Should be configurable
+			-#Graps, measure, graph refresh when facet is selected
+TODO:				-Only 1 Graph at a time
+	
+		Integrate BLAPP UI w/ LWS UI
+			-Link on LWS to invoke BLAPP view
+			-Pass Context (security/collection) to BLAPP from LWS
+			**-BLAPP w/in LWS UI (like LWS->tools->search)
+			**We want it to be separate w/ ui tools in LWS???
+
+	

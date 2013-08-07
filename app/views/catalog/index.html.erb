@@ -1,9 +1,24 @@
-<div id="content" class="span9">
-
     <% unless has_search_parameters? %>
 	    <%# if there are no input/search related params, display the "home" partial -%>
 	    <%= render 'home' %>
     <% else %>
+
+          
+      <div id="content" class="span9">
+
+        <div id="tabs">
+          <ul>
+            <li class="tab"><a class="search-tab" href="#">
+              Search Results</a></li>
+            <li class="tab"><a class="graph-tab" href="#">
+              Graphic Results</a></li>
+          </ul>
+        </div>    <!--Close Tabs -->
+
+          <% if has_landing_page? %>
+            <%#If there is a landing page hit, display it %>
+            <%= render :partial => 'landing_page' %>
+          <% end %>
 
       <h2 class="hide-text top-content-title"><%= t('blacklight.search.search_results_header') %></h2>
 
@@ -16,24 +31,41 @@
 
       <div id="left-bar">
 
-  	    <%= render 'sort_and_per_page' %>
+        <div id="sidebar" class="span3">
+          <%= render :partial=>'facets' %>
+        
+      </div><!--/well -->
 
-        <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
-  	    <%= render_document_index %>
+      <div id="ajax-div">
+        <a id="AJAX-info"> Get aJAXed </a>
+      </div>
+
+  	   
 
      </div>
 
       <div id="right-bar">
-        <div id="sidebar" class="span3">
-          <%= render :partial=>'facets' %>
-          
-        <div id="charts">
-          <%= render 'charts' %>
-        </div>
         
-      </div><!--/well -->
+        <div id="search-tab">
 
+          <%= render 'sort_and_per_page' %>
 
+          <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
+          <%= render_document_index %>
+
+        </div> <!-- close search tab -->
+
+        <div id="graph-tab" class="hide">
+          <div id="d3container">
+
+            <div id="charts">
+             <%= render 'charts' %>
+            </div>
+
+          </div> <!-- close d3container -->
+          
+          
+        </div>    <!-- close graph tab-->
 
     </div> <!--Close right-bar -->
 
