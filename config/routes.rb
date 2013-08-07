@@ -1,14 +1,21 @@
 LwsBlacklight::Application.routes.draw do
-  root :to => "collection_manager#index"
 
-  constraints :id => /.+/ do
-    Blacklight.add_routes(self)
-  end
+  # TODO: In theory, we can scope Blacklight paths automatically to  a collection
+  # however, got errors trying this:
+  # scope ':collection' do  
+    constraints :id => /.+/ do
+      Blacklight.add_routes(self)
+    end
+  # end # scope
+  # Error from trying the scope on /collection1/catalog:
+  #   ==> No route matches {:action=>"show", :controller=>"bookmarks", :collection=>#<SolrDocument:0x4cfc3396 @export_formats={:xml=>{:content_type=>"application/xml"}, :dc_xml=>{:content_type=>"text/xml"}, :oai_dc_xml=>{:content_type=>"text/xml"}}, @solr_response={"re
 
   devise_for :users
-  
-  match 'collection/:collection' => 'collection_manager#set'
 
+  match 'collection/:collection' => 'collection_manager#set'
+  
+  root :to => "collection_manager#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
