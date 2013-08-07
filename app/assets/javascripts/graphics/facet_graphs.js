@@ -1,13 +1,13 @@
 //add onclick functionality to the facet bar
 function add_facet_click_action() {
 $(".twiddle").click(function(e) {
-	toggle_chart(e.target);
+	toggle_graph(e.target);
 });
 
 };
 
 //Draw or close the charts when toggled
-function toggle_chart(node) {
+function toggle_graph(node) {
 	//If the facet was opened, draw the piechart
 	if ($(node).hasClass("twiddle-open")) {
 		var parent = $(node).parent();

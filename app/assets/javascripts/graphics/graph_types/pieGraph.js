@@ -20,7 +20,7 @@ function drawPieGraph(dataObject)
       .attr("id", "d3pie")
 
   var svg = d3.select("#d3pie").append("svg")
-      .attr("width", width/2)
+      .attr("width", width)
       .attr("height", height)
     .append("g")
       .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");
