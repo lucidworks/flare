@@ -1,6 +1,7 @@
 function graph_drop_down_toggle() {
 $('.graph_drop_down_option').click(function(e) {
 	update_drop_down(e);
+	update_Graph();
 });
 
 };

@@ -1,0 +1,3 @@
+<% @collections.delete_if {|c| c == 'LucidWorksLogs'}.each do |c| %>
+   <%= link_to c, :controller => 'collection_manager', :action => 'set', :collection => c%>
+<% end %>

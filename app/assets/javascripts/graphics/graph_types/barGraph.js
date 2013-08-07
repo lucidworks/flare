@@ -1,5 +1,5 @@
 //Takes in a JSON object and 
-function barGraph(dataObject) {
+function drawBarGraph(dataObject) {
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
