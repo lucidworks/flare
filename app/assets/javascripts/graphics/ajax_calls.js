@@ -35,12 +35,3 @@ function getQuery() {
 	query = query.replace("+", " ");
 	return query;
 };
-
-//To add new graphs, 
-function graphRoute(jsonObj) {
-	var graphType = $("#graphTypeDD").value;
-	if (graphType == "bar")
-		formatForBarGraph(jsonObj);
-	else (graphType == "pie")
-		formatForPieGraph(jsonObj);
-};
