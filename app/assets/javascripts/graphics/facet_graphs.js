@@ -12,7 +12,7 @@ function toggle_chart(node) {
 	if ($(node).hasClass("twiddle-open")) {
 		var parent = $(node).parent();
 		var JsonObj = formatForPieGraph(parent);
-		pieGraph(JsonObj);
+		drawPieGraph(JsonObj);
 	}
 	//If the facet was closed, clear the graph
 	else {

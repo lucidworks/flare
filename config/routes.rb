@@ -1,11 +1,13 @@
 LwsBlacklight::Application.routes.draw do
-  root :to => "catalog#index"
+  root :to => "collection_manager#index"
 
   constraints :id => /.+/ do
     Blacklight.add_routes(self)
   end
 
   devise_for :users
+  
+  match 'collection/:collection' => 'collection_manager#set'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

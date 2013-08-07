@@ -34,7 +34,7 @@ function formatForBarGraph(uJSON) {
 	}
 
 	JsonObj = JSON.stringify(JsonObj);
-	barGraph(JsonObj);
+	drawBarGraph(JsonObj);
 };
 
 	//for (var key in mlt) {
