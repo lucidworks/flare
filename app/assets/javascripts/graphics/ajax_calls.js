@@ -1,32 +1,13 @@
-/* Functionality to be built... right now just calls the one ajax
-query already built.  Should call a specific ajax call based on the
-value of the drop down selected */
-
-function ajax_route(node) {
-	var ajax_Type = $("#active_graph_info").text();
-	/*
-	Some logic/routing here
-	*/
-	ajax_Facet_Count(node);
-};
-
-
-
-
 //Performs an ajax call with the current query with moreLikeThis tags on
 //This query should be really customizable/extensible to
 //	build custom calls
-function ajax_Facet_Count(node) {
+function ajax_query() {
 	var query = getQuery();
-	var queryString = "http://localhost:8888/solr/lucid/?q=" + query + "&wt=json&json.wrf=?&indent=true";
+	var queryString = "http://localhost:8888/solr/lucid/?q=" + query + "&wt=json&json.wrf=?&indent=true&mlt=true&mlt.fl=id,keywords";
 	return $.getJSON(queryString, function(result) {
-		var facet_Name = $(node).parent().attr('class').split(/\s+/)[2];
-		var facet_Name = facet_Name.substring(11);
-		var facet_Count = result.face_counts.$(facet_Name)
-		formatJSON(facet_Count);
-	});		//TODO: Test this!!!
-};
-//Known issue: This performs all the action in the anonymous function
+		formatForBarGraph(result);
+	});
+};	//Known issue: This performs all the action in the anonymous function
 //Ideally this would just return the jquery object from the ajax call
 //And be manipulatable
 

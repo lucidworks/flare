@@ -15,6 +15,33 @@ function drawBarGraph(node) {
 };
 
 
+//takes in unformatted JSON and extracts the info you want to graph
+//This will be the part you want to customize/build off of
+function formatForBarGraph(uJSON) {
+
+	var JsonObj = new Object();
+	JsonObj = [];
+	var mlt = uJSON.moreLikeThis;
+	var keyName, numHits = "";
+
+	for( var key in mlt) {
+		keyName = key;
+		numHits = mlt[key].numFound;
+		var x = {};
+		x.assetName = keyName;
+		x.hits = numHits;
+		JsonObj.push(x);
+	}
+
+	JsonObj = JSON.stringify(JsonObj);
+	drawBarGraph(JsonObj);
+};
+
+	//for (var key in mlt) {
+	//	var valueTest = jsonObj.moreLikeThis[key].numFound;
+	//	$('#ajax-div').append(valueTest + " ");
+
+
 (function($) {
 
 	$(document).ready(function() {
