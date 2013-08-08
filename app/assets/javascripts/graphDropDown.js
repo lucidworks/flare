@@ -9,7 +9,7 @@ $('.graph_drop_down_option').click(function(e) {
 
 function update_drop_down(e) {
 	var node = e.target;
-	var changeText = $("#active_graph_type").children(":first");
+	var changeText = $(node).parent().parent().parent().children(":first");
 	$(changeText).text( $(node).text() );
 	var parent = $(node).parent();
 	e.stopPropagation();
