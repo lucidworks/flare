@@ -1,0 +1,10 @@
+<% if has_facet_values? %>
+  <div>
+    <a class="graphtype" href="#" data-graphtype="bar">Bar Graph</a>&nbsp;|&nbsp;<a class="graphtype" href="#" data-graphtype="pie">Pie Chart</a>
+  </div>
+  
+	<%= render :partial => 'type_of_graph_widget' %>
+	<%= render :partial => 'graph_information_widget' %>
+
+	<div id="graph" data-fieldname="" data-graphtype="pie"></div>
+<% end %>

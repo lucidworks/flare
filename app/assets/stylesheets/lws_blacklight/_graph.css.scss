@@ -1,0 +1,33 @@
+#graph {
+	float: left;
+	max-width: 100%;
+}
+
+#graph_type_selected {
+	width: 5.5em;
+}
+
+.graphics_dropdown {
+	margin-left: .5em;
+}
+
+/* bar graph */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+
+/* pie graph */
+.arc path {
+  stroke: #fff;
+}
