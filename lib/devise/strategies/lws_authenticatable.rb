@@ -18,8 +18,8 @@ module Devise
         
         username = params[:user][:username]
         
-        # TODO: need to parameterize the users API (which is on the lwe-ui app on 8989 by default)
-        resp = Net::HTTP.get_response(URI.parse("http://127.0.0.1:8989/api/users/#{username}"))
+        url ||= ENV['LWS_USER_API_BASE']  # defaults to http://127.0.0.1:8989
+        resp = Net::HTTP.get_response(URI.parse("#{url || 'http://127.0.0.1:8989'}/api/users/#{username}"))
         
         # puts ">>>>>>>> /api/users/#{username} ==> #{resp.body}"
         
