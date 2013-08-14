@@ -76,7 +76,7 @@ the same application will be spiffy.
     
 ## Environment variables
 
-    lws_blacklight will use the following environment variables to access LWS core API, user API, and Solr itself, falling back to the defaults specified:
+This app will use the following environment variables to access LWS core API, user API, and Solr itself, falling back to the defaults specified:
     
 * LWS_USER_API_BASE:
   defaults to http://127.0.0.1:8989 (uses /api/users/#{username} from the base)
@@ -89,7 +89,7 @@ the same application will be spiffy.
 
 For example, LWS developers may run the LWS (lwe-ui) admin UI application using the default Rails port of 3000, so lws_blacklight can be run like this:
 
-    LWS_USER_API_BASE=http://127.0.0.1:8989 jruby -S rails s
+    LWS_USER_API_BASE=http://127.0.0.1:3000 jruby -S rails s -p 8080
 
 # References
 
