@@ -69,8 +69,8 @@ function buildFacetData(node) {
   		facetValue = $(this).find('.count').text();
   	}
 		
-		x.assetName = facetName;
-		x.assetLink = facetLink;
+		x.assetName  = facetName;
+		x.assetLink  = facetLink;
 		x.hits = facetValue;
 		JsonObj.push(x);
 	});
