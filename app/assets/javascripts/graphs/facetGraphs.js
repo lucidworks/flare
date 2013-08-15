@@ -1,8 +1,12 @@
 // add onclick functionality to the facet menu
 function addFacetSelectionBehavior() {
   $(".twiddle").click(function(e) {
-    setFacetFieldName(e.target);
-  	drawFacetGraph();
+    if ($(this).hasClass("twiddle-open")) {
+      setFacetFieldName(e.target);
+      drawFacetGraph();  
+    } else { 
+    	clearGraph();
+    }
   });
 }
 
@@ -13,32 +17,31 @@ function setFacetFieldName(node) {
 
 function setGraphType() {
   $(".graphtype").click(function(e) {
+    var graphType = $(this).attr("data-graphtype");
+  	$("#graph").attr("data-graphtype", graphType);
   	e.preventDefault();
-  	$("#graph").attr("data-graphtype", $(this).attr("data-graphtype"));
   	
   	drawFacetGraph();
   });
 };
 
 function drawFacetGraph() {
-	clearGraph();
-	
 	var graphType = $("#graph").attr("data-graphtype");
 	var fieldName = $("#graph").attr("data-fieldname");
 	var field = $("#facets").find("." + fieldName);
+	var JsonObj = buildFacetData(field);
+	
+	clearGraph();
 	
 	if (field.find('ul').is(":visible")) { 
     switch(graphType) {
       case 'pie': 
-        var JsonObj = buildFacetData(field);
         drawPieGraph(JsonObj);
         break;
       case 'bar': 
-        var JsonObj = buildFacetData(field);
         drawBarGraph(JsonObj);
         break;
       default: 
-        var JsonObj = buildFacetData(field);
         drawPieGraph(JsonObj);
         break;
     }
@@ -47,21 +50,28 @@ function drawFacetGraph() {
 
 // build facet data from left sidebar facet list
 function buildFacetData(node) {  
-	var facetName = ($(node).children().first().text());
-
 	var JsonObj = new Object();
 	JsonObj = [];
 	var facetList = $(node).find('ul');
 
 	facetList.children('li').each(function() {
-		var facet_name = $(this).find('.facet_select').text();
-		var facet_link = $(this).find('.facet_select').attr('href');
-		var facet_value = $(this).find('.count').text();
+	  var x = {}, facetName, facetValue, facetLink;
+	  
+	  if ($(this).children().first().hasClass("selected")) {
+	    facetName  = $(this).find(".selected").contents().filter(function() {
+	      return this.nodeType == 3;
+	    }).text();
+	    facetLink  = $(this).find(".remove").attr('href');
+	    facetValue = $(this).find('.selected > .count').text();
+	  } else {
+  		facetName  = $(this).find(".facet_select").text();
+  		facetLink  = $(this).find(".facet_select").attr('href');
+  		facetValue = $(this).find('.count').text();
+  	}
 		
-		var x = {}
-		x.assetName = facet_name;
-		x.assetLink = facet_link;
-		x.hits = facet_value;
+		x.assetName = facetName;
+		x.assetLink = facetLink;
+		x.hits = facetValue;
 		JsonObj.push(x);
 	});
 	
