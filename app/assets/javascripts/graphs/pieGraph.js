@@ -1,11 +1,11 @@
-function drawPieGraph(dataObject) {
+function renderPieGraph(dataObject) {
   var data = JSON.parse(dataObject);
   
-  var width = 450,
-      height = 250,
+  var width = 400,
+      height = 350,
       radius = Math.min(width, height) / 2;
   
-  var color = d3.scale.category20();
+  var color = d3.scale.category20c();
   
   var arc = d3.svg.arc()
     .outerRadius(radius - 10)
@@ -42,22 +42,25 @@ function drawPieGraph(dataObject) {
     
   var legend = d3.select(".d3pie").append("svg")
       .attr("class", "legend")
-      .attr("width", radius * 2)
+      .attr("width", 200)
       .attr("height", radius * 2)
+      .style("position", "absolute")
+      .style("top", "60px")
+      .style("right", width * 3)
     .selectAll("g")
       .data(color.domain().slice().reverse())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 22 + ")"; });
 
   legend.append("rect")
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color);
+    .attr("width", 18)
+    .attr("height", 18)
+    .style("fill", color);
 
   legend.append("text")
-      .attr("x", 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("font", "normal 12px Arial")
-      .text(function(d) { return d; }); 
+    .attr("x", 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("font", "normal 12px Arial")
+    .text(function(d) { return d; }); 
 }

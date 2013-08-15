@@ -3,7 +3,7 @@ function addFacetSelectionBehavior() {
   $(".twiddle").click(function(e) {
     if ($(this).hasClass("twiddle-open")) {
       setFacetFieldName(e.target);
-      drawFacetGraph();  
+      renderFacetGraph();  
     } else { 
     	clearGraph();
     }
@@ -21,11 +21,11 @@ function setGraphType() {
   	$("#graph").attr("data-graphtype", graphType);
   	e.preventDefault();
   	
-  	drawFacetGraph();
+  	renderFacetGraph();
   });
 };
 
-function drawFacetGraph() {
+function renderFacetGraph() {
 	var graphType = $("#graph").attr("data-graphtype");
 	var fieldName = $("#graph").attr("data-fieldname");
 	var field = $("#facets").find("." + fieldName);
@@ -36,13 +36,13 @@ function drawFacetGraph() {
 	if (field.find('ul').is(":visible")) { 
     switch(graphType) {
       case 'pie': 
-        drawPieGraph(JsonObj);
+        renderPieGraph(JsonObj);
         break;
       case 'bar': 
-        drawBarGraph(JsonObj);
+        renderBarGraph(JsonObj);
         break;
       default: 
-        drawPieGraph(JsonObj);
+        renderPieGraph(JsonObj);
         break;
     }
 	} 
