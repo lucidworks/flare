@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ ! -d "$LWE_HOME" ] ; then
+  echo 'Aborting: $LWE_HOME is not set'
+  exit 1
+fi
+
+############################## START LWE ##############################
+PATH="$LWE_HOME/tools/jruby/bin:$PATH:/usr/local/bin"
+
+source "$HOME/.rvm/scripts/rvm"
+cd "$WORKSPACE"
+rm -rf .bundle
+jruby -S bundle install --local
+
+# Just to test out the CI infrastructure
+jruby -S rake routes
+
