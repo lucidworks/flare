@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem "warbler"
+gem 'sinatra'
+gem 'warbler'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,6 +28,7 @@ gem 'jquery-rails'
 gem 'blacklight'
 
 # TODO: Use lucid_works gem to centralize and keep clean the LWS REST API
+# gem 'lucid_works', '0.9.3'
 #   * Had troubles incorporating this into my environment, so going straight HTTP + JSON:
 
 # ➜  lucidworks-ruby git:(master) ✗ jruby -S gem build lucid_works.gemspec                                                
@@ -41,23 +43,6 @@ gem 'blacklight'
 # Resolving dependencies...
 # Could not find gem 'lucid_works (= 0.9.3) java' in the gems available on this
 # machine.
-
-# gem 'lucid_works', '0.9.3'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
 
 gem "unicode", :platforms => [:mri_18, :mri_19]
 gem "devise"

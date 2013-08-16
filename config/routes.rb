@@ -1,3 +1,5 @@
+require 'lucid/prism'
+
 LwsBlacklight::Application.routes.draw do
 
   # TODO: In theory, we can scope Blacklight paths automatically to  a collection
@@ -10,9 +12,15 @@ LwsBlacklight::Application.routes.draw do
   # Error from trying the scope on /collection1/catalog:
   #   ==> No route matches {:action=>"show", :controller=>"bookmarks", :collection=>#<SolrDocument:0x4cfc3396 @export_formats={:xml=>{:content_type=>"application/xml"}, :dc_xml=>{:content_type=>"text/xml"}, :oai_dc_xml=>{:content_type=>"text/xml"}}, @solr_response={"re
 
+# Work in progress to allow Solr (but Blacklight-savvy constrained) responses to flow back to the client
+#  match 'catalog/data' => 'catalog#data'
+
   devise_for :users
 
   match 'collection/:collection' => 'collection_manager#set'
+
+  # Prism's goal is to allow straight-forward templated "pass-through" of Solr responses  
+  match "prism" => Lucid::Prism, :anchor => false
   
   root :to => "collection_manager#index"
   
