@@ -2,15 +2,12 @@
 # note that while this is mostly restful routing, the #update and #destroy actions
 # take the Solr document ID as the :id, NOT the id of the actual Bookmark action. 
 class BookmarksController < CatalogController
-
-  ##
   # Give Bookmarks access to the CatalogController configuration
   include Blacklight::Configurable
   include Blacklight::SolrHelper
 
   copy_blacklight_config_from(CatalogController)
   
-
   def solr_param_quote(val, options = {})
     options[:quote] ||= '"'
     unless val =~ /^[a-zA-Z$_\-\^]+$/

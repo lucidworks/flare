@@ -1,15 +1,15 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
-# TODO: rename this from CatalogController.  "CatalogController" comes from the library search system roots of Blacklight
-class CatalogController < ApplicationController 
+class CatalogController < BaseController
+  layout 'lws_blacklight'
   
-  before_filter do # mandate that the collection is set prior to any action invoked
-    redirect_to :root unless session[:collection]
+  include Blacklight::Catalog
+  
+  def collections
+    @collections = build_collections 
   end
-
-  # Bring in, configure, and later override/extend a little, Blacklight's controller infrastructure    
-  include Blacklight::Catalog  
+  
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
@@ -126,32 +126,19 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
   end
-
-# TODO: work in progress, but looks to be surpassed by the new json response from BL actions
-  # def data
-  #   (@response, @document_list) = get_search_results
-  #   
-  #   render :json => @response
-  # end
-
-  protected
+  
   # Overrride Blacklight's solr_search_params to add current user's role(s) to the request, honoring LWS role filters
   def solr_search_params(user_params = params || {})
     # Adapted from lwe-ui's search.rb#roles_for(user,collection)
     roles = []
-    if session[:collection_roles] && current_user
-      collection_roles = session[:collection_roles]
+    if current_collection_roles && current_user
       
       # ==> [{"users":["admin"],"name":"DEFAULT","filters":["*:*"],"groups":[]},{"users":["bob"],"name":"restricted","filters":["-search"],"groups":[]}]
       
-      collection_roles.each do |role|
+      current_collection_roles.each do |role|
         roles << role["name"] if role["users"].include?(current_user.username)
       end
-      
-      # TODO: when LDAP is added, groups will need to be considered here as well
     end
-    
-    # TODO: merge in saved searches as facet.query's
     
     super.merge :role => roles
   end
@@ -160,14 +147,12 @@ class CatalogController < ApplicationController
   # def blacklight_solr
   #   @solr ||=  RSolr.connect(blacklight_solr_config)
   # end
-
   def blacklight_solr_config
     # Make the Solr URL dynamic based on the users session set collection, removes need/use of config/solr.yml
     # TODO: need to see how this will affect test runs
     # See also use of ENV['LWS_...'] in collection_manager_controller
     url ||= ENV['LWS_SOLR_URL']
     url ||= "#{ENV['LWS_CORE_URL']}/solr" if ENV['LWS_CORE_URL']
-    {:url => "#{url || 'http://127.0.0.1:8888/solr'}/#{session[:collection]}"}
+    {:url => "#{url || 'http://127.0.0.1:8888/solr'}/#{current_collection['name']}"}
   end
-
 end 

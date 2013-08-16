@@ -1,9 +1,0 @@
-<div>
-  Select a collection:
-
-  <ul>
-    <% @collections.delete_if {|c| c == 'LucidWorksLogs'}.each do |c| %>
-      <li><%= link_to c, :controller => 'collection_manager', :action => 'set', :collection => c%></li>
-    <% end %>
-  </ul>
-</div>

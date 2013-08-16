@@ -1,0 +1,9 @@
+<div class="lead">Welcome to Blacklight, powered by LucidWorks Search</div>
+
+<h4>Select a collection:</h4>
+
+<ul>
+  <% @collections.delete_if {|c| c['name'] == 'LucidWorksLogs'}.each do |c| %>
+    <li><%= link_to c['name'], collection_path(c['name']) %></li>
+  <% end %>
+</ul>

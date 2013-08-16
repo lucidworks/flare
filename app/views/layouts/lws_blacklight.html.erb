@@ -31,7 +31,7 @@
   </head>
   <% onload_text = "$('input#q').focus(); $(footer);" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
   <body onload="<%= onload_text %>" class="<%= render_body_class %>">
-  <%= render :partial => 'shared/header_navbar' %>
+  <%= render :partial => 'shared/header' %>
 
   <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
 
