@@ -18,3 +18,7 @@ jruby -S bundle install --local
 # Just to test out the CI infrastructure
 jruby -S rake routes
 
+jruby -S warble executable war
+
+
+
