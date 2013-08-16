@@ -8,6 +8,8 @@ fi
 ############################## START LWE ##############################
 PATH="$LWE_HOME/tools/jruby/bin:$PATH:/usr/local/bin"
 
+jruby -S gem list
+
 source "$HOME/.rvm/scripts/rvm"
 cd "$WORKSPACE"
 rm -rf .bundle
