@@ -1,16 +1,15 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
+# TODO: rename this from CatalogController.  "CatalogController" comes from the library search system roots of Blacklight
 class CatalogController < ApplicationController 
   
-  before_filter :check_collection_set
-
-  def check_collection_set
+  before_filter do # mandate that the collection is set prior to any action invoked
     redirect_to :root unless session[:collection]
   end
-  
-  include Blacklight::Catalog
-  
+
+  # Bring in, configure, and later override/extend a little, Blacklight's controller infrastructure    
+  include Blacklight::Catalog  
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
@@ -128,6 +127,14 @@ class CatalogController < ApplicationController
     config.spell_max = 5
   end
 
+# TODO: work in progress, but looks to be surpassed by the new json response from BL actions
+  # def data
+  #   (@response, @document_list) = get_search_results
+  #   
+  #   render :json => @response
+  # end
+
+  protected
   # Overrride Blacklight's solr_search_params to add current user's role(s) to the request, honoring LWS role filters
   def solr_search_params(user_params = params || {})
     # Adapted from lwe-ui's search.rb#roles_for(user,collection)
@@ -140,7 +147,11 @@ class CatalogController < ApplicationController
       collection_roles.each do |role|
         roles << role["name"] if role["users"].include?(current_user.username)
       end
+      
+      # TODO: when LDAP is added, groups will need to be considered here as well
     end
+    
+    # TODO: merge in saved searches as facet.query's
     
     super.merge :role => roles
   end
