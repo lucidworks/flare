@@ -12,9 +12,16 @@ module Lucid
     # Use the Rack session so that it overlaps with the Rails/Blacklight one
     use Rack::Session::Pool
 
-    # TODO: see if this is the way to go to integrate Blacklight context with Sinatra
+    helpers do
+      def h(text)
+        Rack::Utils.escape_html(text)
+      end
+    end
+
+    # TODO: see if this is the way to go to integrate Blacklight context with Sinatra, then centralize this across CatalogController
     include Blacklight::SolrHelper
     include Blacklight::Configurable
+    copy_blacklight_config_from(CatalogController) # useful obscure necessity to pick up the common config
 
     # blacklight_solr needed from Blacklight's catalog.rb    
     def blacklight_solr
@@ -34,9 +41,11 @@ module Lucid
     set :root, '/Users/erikhatcher/dev/lws_blacklight' # TODO: make relative/dynamic
     set :views, Proc.new { File.join(root, 'app/views') }
     # set :erb, :layout => :"layouts/application.html"    
-      
-    get '/test/?:handler?' do
-      (@response, @document_list) = get_search_results
+
+    # Simple demonstration pass-through templating of the Blacklight configured Solr and request parameterization      
+    get '/test' do
+      (@search_results, @document_list) = get_search_results()
+      # Blacklight/Rails returns @response, but Sinatra frowns upon using @response
       
       erb :"prism/test.html"
     end
