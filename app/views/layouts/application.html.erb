@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>LucidWorks :: lws_blacklight</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<html class="no-js">
+  <%= render :partial => 'layouts/head' %>
+  <% onload_text = "$('input#q').focus(); $(footer);" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
+  <body onload="<%= onload_text %>" class="<%= render_body_class %>">
+    <%= yield %>
+  </body>
 </html>
