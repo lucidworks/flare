@@ -20,11 +20,13 @@
           </div>
         </div>    
       </div>              
-
       <div class="row">
         <%= yield %>
      </div>   
-  </div>
-  <%= render :partial => 'shared/footer' %>
+    </div>
+    <%= render :partial => 'shared/footer' %>
+    <div id="load-javascripts">
+      <%= javascript_include_tag 'application' %>
+    </div>
   </body>
 </html>
