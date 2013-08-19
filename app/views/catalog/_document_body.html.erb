@@ -1,0 +1,10 @@
+<div class="document-body">
+	<% #Load the body field, if there is one and display it -%>
+	<% index_fields(document).each do |solr_fname, field| -%>
+		<% if (render_index_field_label document, :field => solr_fname) == "body" -%>
+			<% if should_render_index_field? document, field %>
+				<p><%= render_index_field_value document, :field => solr_fname %></p>
+			<% end -%>
+		<% end -%>
+	<% end -%>
+</div>

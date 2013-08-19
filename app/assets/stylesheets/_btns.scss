@@ -1,0 +1,18 @@
+/* =Buttons
+-------------------------------------------------------------- */
+
+.btn:focus {
+  outline: none;
+}
+
+.btn .caret {
+  margin-left: 2px;
+}
+
+.btn-toggle {
+  &:not(.collapsed) {
+    .caret {
+      @include rotate(180deg);  
+    }
+  }
+}
