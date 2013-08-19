@@ -17,4 +17,5 @@
 //= require blacklight/blacklight
 //= require more_info_toggle
 //= require_tree ./graphs
+//= require lws_blacklight.js
 
