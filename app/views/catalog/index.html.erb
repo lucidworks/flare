@@ -1,55 +1,33 @@
-    <p><strong>Current Collection:</strong> <%= current_collection['name'] %></p>
-        
-    <div id="content" class="span9">
-      
-      <div id="tabs">
-        <ul>
-          <li class="tab"><a class="search-tab" href="#">
-            Search Results</a></li>
-          <li class="tab"><a class="graph-tab" href="#">
-            Graphic Results</a></li>
-        </ul>
-      </div>    <!--Close Tabs -->
+<div id="sidebar" class="span3">
+  <%= render :partial=>'facets' %>
+</div><!--/well -->
 
-        
+<div id="content" class="span9">
+  <h2 class="hide-text top-content-title"><%= t('blacklight.search.search_results_header') %></h2>
 
-    <h2 class="hide-text top-content-title"><%= t('blacklight.search.search_results_header') %></h2>
+  <% @page_title = t('blacklight.search.title', :application_name => application_name) %>
 
-    <% @page_title = t('blacklight.search.title', :application_name => application_name) %>
+  <% extra_head_content << render_opensearch_response_metadata.html_safe %>
 
-
-    <% extra_head_content << render_opensearch_response_metadata.html_safe %>
-
-    <%= render :partial => 'did_you_mean' %>
-
-    <div id="left-bar">
-
-      <div id="sidebar" class="span3">
-        <%= render :partial=>'facets' %>
-      
-    </div><!--/well -->  	   
-
-   </div>
-
-    <div id="right-bar">
-      
-      <div id="search-tab">
-
-        <%= render 'sort_and_per_page' %>
-
-        <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
-        <%= render_document_index %>
-
-      </div> <!-- close search tab -->
-
-      <div id="graph-tab" class="hide">
-        <div id="d3container">
-           <%= render 'graph' %>
-        </div> <!-- close d3container -->
-      </div>    <!-- close graph tab-->
-
-  </div> <!--Close right-bar -->
-
-    <%= render 'results_pagination' %>
+  <%= render :partial => 'did_you_mean' %>
   
-</div>  
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#list-view" data-toggle="tab">List View</a></li>
+    <li><a href="#graph-view" data-toggle="tab">Graph View</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="list-view">
+      <%= render 'sort_and_per_page' %>
+    
+      <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
+      
+      <%= render_document_index %>
+    
+      <%= render 'results_pagination' %>
+    </div>
+    <div class="tab-pane fade in" id="graph-view">
+      <%= render :partial => 'graph' %>
+    </div>
+  </div>
+</div>

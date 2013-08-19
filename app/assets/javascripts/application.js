@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require d3.js
-//
-// Required by Blacklight
 //= require blacklight/blacklight
-//= require_tree .
+//= require more_info_toggle
+//= require_tree ./graphs
+

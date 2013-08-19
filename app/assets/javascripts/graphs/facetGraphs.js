@@ -21,7 +21,9 @@ function setGraphType() {
   	$("#graph").attr("data-graphtype", graphType);
   	e.preventDefault();
   	
-  	renderFacetGraph();
+  	if ($("#graph").attr("data-fieldname")) {
+  	  renderFacetGraph();
+  	}
   });
 };
 

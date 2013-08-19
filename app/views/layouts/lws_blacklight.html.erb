@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html class="no-js">
   <%= render :partial => 'layouts/head' %>
-  <% onload_text = "$('input#q').focus(); $(footer);" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
+  <% onload_text = "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
   <body onload="<%= onload_text %>" class="<%= render_body_class %>">
-    <%= render :partial => 'shared/header' %>
+    <%= render :partial => 'shared/header_navbar' %>
     <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
 
     <!-- /container -->

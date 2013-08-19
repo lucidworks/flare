@@ -44,8 +44,6 @@ function renderPieGraph(dataObject) {
       .attr("class", "legend")
       .attr("width", 200)
       .attr("height", radius * 2)
-      .style("position", "absolute")
-      .style("top", "60px")
       .style("right", width * 3)
     .selectAll("g")
       .data(color.domain().slice().reverse())
