@@ -14,9 +14,15 @@ source "$HOME/.rvm/scripts/rvm"
 cd "$WORKSPACE"
 
 java -version
-jruby -version
+jruby -v
 
 rvm list
+
+rvm gemset name
+rvm gemset list
+
+rvm gemset create lws_blacklight
+rvm gemset use lws_blacklight
 
 rm -rf .bundle
 jruby -S bundle install --local
