@@ -14,13 +14,13 @@ cd "$WORKSPACE"
 java -version
 jruby -v
 
-rvm list
+rvm gemset use lws_blacklight --create
+jruby -S gem list
+jruby -S gem install bundler
 
+rvm list
 rvm gemset name
 rvm gemset list
-
-# rvm gemset use lws_blacklight --create
-# jruby -S gem list
 
 rm -rf .bundle
 jruby -S bundle install --local
