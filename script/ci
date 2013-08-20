@@ -8,8 +8,6 @@ fi
 ############################## START LWE ##############################
 PATH="$LWE_HOME/tools/jruby/bin:$PATH:/usr/local/bin"
 
-jruby -S gem list
-
 source "$HOME/.rvm/scripts/rvm"
 cd "$WORKSPACE"
 
@@ -21,8 +19,8 @@ rvm list
 rvm gemset name
 rvm gemset list
 
-rvm gemset create lws_blacklight
-rvm gemset use lws_blacklight
+# rvm gemset use lws_blacklight --create
+# jruby -S gem list
 
 rm -rf .bundle
 jruby -S bundle install --local
