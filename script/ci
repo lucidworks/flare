@@ -12,6 +12,12 @@ jruby -S gem list
 
 source "$HOME/.rvm/scripts/rvm"
 cd "$WORKSPACE"
+
+java -version
+jruby -version
+
+rvm list
+
 rm -rf .bundle
 jruby -S bundle install --local
 
