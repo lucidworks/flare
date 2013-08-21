@@ -8,10 +8,10 @@ module BlacklightHelper
     
     fields = {}
     
-    document.keys.each {|f| 
+    document.except("[elevated]", "[excluded]").keys.each {|f| 
       fields[f] = Blacklight::Configuration::SolrField.new(:field => f, :label => f)
     }
-    
+        
     fields
   end
   
