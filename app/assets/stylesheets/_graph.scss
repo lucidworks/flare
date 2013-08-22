@@ -1,14 +1,11 @@
+#graph-view {
+	.btn-toolbar {
+	  margin-top: 0;
+	}
+}
+
 #graph {
-	float: left;
-	max-width: 100%;
-}
-
-#graph_type_selected {
-	width: 5.5em;
-}
-
-.graphics_dropdown {
-	margin-left: .5em;
+  margin: 20px;
 }
 
 /* bar graph */
@@ -35,5 +32,5 @@
 
 .d3pie {
   position: relative;
-  padding: 20px 0 10px 20px;
+  left: 100px;
 }

@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require d3.js
 //= require blacklight/blacklight
+//= require facets.js
 //= require_tree ./graphs
 //= require lws_blacklight.js
 

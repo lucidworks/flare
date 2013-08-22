@@ -1,0 +1,13 @@
+<div class="facets-group accordion-group">
+  <div class="accordion-heading">
+    <a class="facets-toggle accordion-toggle collapsed" data-toggle="collapse" data-parent="#facets" href="#blacklight-<%= facet_field.field.parameterize %>">
+      <%= facet_field.label %>
+      <i class="icon-chevron-right"></i>
+    </a>
+  </div>
+  <div id="blacklight-<%= facet_field.field.parameterize %>" class="accordion-body collapse">
+    <div class="accordion-inner">
+       <%= yield %>
+    </div>
+  </div>
+</div>

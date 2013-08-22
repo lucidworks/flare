@@ -1,24 +1,34 @@
 <% if has_facet_values? %>
-  <div class="btn-toolbar pull-right">
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Analyses<span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="#" href="#">Facet Count</a></li>
-      </ul>
-    </div>
-  
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Graph Type<span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="graphtype" href="#" data-graphtype="bar" href="#">Bar Graph</a></li>
-        <li><a class="graphtype" href="#" data-graphtype="pie" href="#">Pie Chart</a></li>
-      </ul>
+  <div class="row">
+    <div class="span9">
+      <div class="btn-toolbar pull-right">
+        <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Analyses<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" href="#">Facet Count</a></li>
+          </ul>
+        </div>
+      
+        <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Graph Type<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="graphtype" href="#" data-graphtype="bar" href="#">Bar Graph</a></li>
+            <li><a class="graphtype" href="#" data-graphtype="pie" href="#">Pie Chart</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-
-	<div id="graph" data-fieldname="" data-graphtype="pie"></div>
+  
+  <div class="row">
+    <div class="span9">
+      <div id="graph" data-fieldname="" data-graphtype="pie"></div>
+    </div>
+  </div>
 <% end %>
+
+<div id="graph-msg" class="alert alert-info">Choose a facet group to view data</div>
