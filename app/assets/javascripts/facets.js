@@ -16,7 +16,7 @@ function addFacetSelectionBehavior() {
 function setFacetGroupActive() {
   var activeFacetGroup = localStorage.getItem('facets-group');
   
-  if (activeFacetGroup) {
+  if (activeFacetGroup && ($("#facets").length > 0)) {
     $(activeFacetGroup).addClass('in');
     $(activeFacetGroup).prev().find('.accordion-toggle').removeClass('collapsed');
     $(activeFacetGroup).parents('.facets-group').addClass('active');
@@ -42,29 +42,32 @@ function setGraphType() {
 function renderFacetGraph() {
 	var graphType = $('#graph').attr('data-graphtype');
 	var fieldName = $('#graph').attr('data-fieldname');
-	var fieldList = $('#facets').find('#' + fieldName).find('.list-facets');
-	var JsonObj = buildFacetData(fieldList);
-	
-	if ($.isEmptyObject(JsonObj)) { 
-	  $('#graph-msg').removeClass('alert-info').text('No graph data available');
-	} else if (fieldName) {
-	  $('#graph-msg').hide();
-  	clearGraph();
-  	
-  	if (fieldList.is(':visible')) { 
-      switch(graphType) {
-        case 'pie': 
-          renderPieGraph(JsonObj);
-          break;
-        case 'bar': 
-          renderBarGraph(JsonObj);
-          break;
-        default: 
-          renderPieGraph(JsonObj);
-          break;
-      }
-  	} 
-  }
+		
+	if (fieldName) {
+	  var fieldList = $('#facets').find('#' + fieldName).find('.list-facets');
+	  var JsonObj = buildFacetData(fieldList);
+	  
+	  if ($.isEmptyObject(JsonObj)) { 
+	    $('#graph-msg').removeClass('alert-info').text('No graph data available');
+	  } else {
+	    $('#graph-msg').hide();
+	    clearGraph();
+	    
+	    if (fieldList.is(':visible')) { 
+	      switch(graphType) {
+	        case 'pie': 
+	          renderPieGraph(JsonObj);
+	          break;
+	        case 'bar': 
+	          renderBarGraph(JsonObj);
+	          break;
+	        default: 
+	          renderPieGraph(JsonObj);
+	          break;
+	      }
+	    } 
+	  }
+	} 
 }
 
 // build facet data from left sidebar facet list

@@ -1,24 +1,19 @@
-<div id="header-navbar-fixed-top" class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
-		<div id="navbar-container" class="container">
-			<div class="row">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-				</a>
-				<div id="logo" class="span3">
-				  <a href="<%= root_path %>"><img src="<%=asset_url('lucidworks/logo.png')%>"/></a>
-				</div>
-				<div class="span6 clearfix" id="searchbar">
-				  <% if current_collection.has_key?("name") %>
-				    <%= render_search_bar %>
-				  <% end %>
-				</div>
-				<div id="link-box" class="span3 nav-collapse">
-          <%= render :partial=>'/user_util_links' %>				
+		<div class="container">
+		  <div class="row">
+		    <div class="span3">
+		      <a class="brand" href="<%= root_path %>"><img src="<%=asset_url('lucidworks/logo.png')%>" alt="LucidWorks" /></a>
+		    </div>
+  	  	<div class="span6" id="searchbar">
+      	  <% if current_collection.has_key?("name") %>
+      	    <%= render_search_bar %>
+      	  <% end %>
+    	  </div>
+  		  <div class="span3">
+          <%= render :partial=>'/user_util_links' %>
         </div>
-			</div>
+      </div>
 		</div>
 	</div>
 </div>
