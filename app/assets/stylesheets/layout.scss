@@ -1,37 +1,32 @@
-/* Generic layout stuff */
-.hide 
-{
-  display:none
-}
-  
-/* This provides a fixed distance between the header and the main content */
-
+html,
 body {
-  padding-top: 5%;
-  height:87%;
-  position:relative;
-
+  height: 100%;
+  padding: 0;
 }
 
-a {
-	color: rgb(46,67,119)
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -61px;
+  
 }
 
 #main-container {
-	width:86%;
-	margin-left: 7%;
-	margin-right: 7%
-}
-
-[class*="span"] {
-	margin: 0;
-}
-
-.row {
-	margin: 0;
+  padding: 80px 0;
 }
 
 #content {
-	width:100%;
-	padding-top:10px;
+  @include clearfix();
+}
+
+footer {
+  height: 60px;
+  border-top: 1px solid #e5e5e5;
+  
+  p {
+    margin: 20px 0;
+    text-align: center;
+    line-height: 1.4em;
+  }
 }
