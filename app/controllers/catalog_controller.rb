@@ -127,6 +127,39 @@ class CatalogController < BaseController
     config.spell_max = 5
   end
   
+  # #email overridden to add catalog_id to the redirects
+  # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
+  def email
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
+    if request.post?
+      if params[:to]
+        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+        
+        if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
+          email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
+        else
+          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
+        end
+      else
+        flash[:error] = I18n.t('blacklight.email.errors.to.blank')
+      end
+
+      unless flash[:error]
+        email.deliver 
+        flash[:success] = "Email sent"
+        redirect_to catalog_path(params['id'], :collection_id => params[:collection_id]) unless request.xhr?
+      end
+    end
+
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
+  
+  
   # Overrride Blacklight's solr_search_params to add current user's role(s) to the request, honoring LWS role filters
   def solr_search_params(user_params = params || {})
     # Adapted from lwe-ui's search.rb#roles_for(user,collection)

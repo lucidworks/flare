@@ -130,7 +130,7 @@ class BookmarksController < CatalogController
     else
       flash[:error] = I18n.t('blacklight.bookmarks.clear.failure') 
     end
-    redirect_to :action => "index"
+    redirect_to :action => "index", :collection_id => params[:collection_id]
   end
   
   protected
