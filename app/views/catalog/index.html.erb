@@ -1,4 +1,4 @@
-<div id="sidebar" class="span3">
+ <div id="sidebar" class="span3">
   <%= render :partial=>'facets' %>
 </div><!--/well -->
 
@@ -13,13 +13,13 @@
   
   <%= render :partial => 'constraints' %>
   
-  <ul class="nav nav-tabs">
-    <li class="active"><a id="tab-list-view" href="#list-view" data-toggle="tab">List View</a></li>
-    <li><a id="tab-graph-view" href="#graph-view" data-toggle="tab">Graph View</a></li>
+  <ul id="view-tabs" class="nav nav-tabs">
+    <li class="active"><a class="btn-view" href="#view-list" data-toggle="tab" data-view="list">List View</a></li>
+    <li><a class="btn-view" href="#view-graph" data-toggle="tab" data-view="graph">Graph View</a></li>
   </ul>
   
   <div class="tab-content">
-    <div class="tab-pane fade in active" id="list-view">
+    <div class="tab-pane fade in active" id="view-list">
       <%= render 'sort_and_per_page' %>
     
       <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
@@ -28,7 +28,7 @@
     
       <%= render 'results_pagination' %>
     </div>
-    <div class="tab-pane fade in" id="graph-view">
+    <div class="tab-pane fade in" id="view-graph">
       <%= render :partial => 'graph' %>
     </div>
   </div>

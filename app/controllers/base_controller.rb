@@ -6,16 +6,10 @@ class BaseController < ApplicationController
   include BaseHelper
 
   helper_method :current_collection
-  helper_method :current_collection_roles
 
   def current_collection
-    collection_id = params[:collection_id]  
-    @current_collection = lws_api_get("/collections/#{collection_id}")
-  end
-  
-  def current_collection_roles
-    collection_id = params[:collection_id] 
-    @roles = lws_api_get("/collections/#{collection_id}/roles")
+    @current_collection = lws_api_get("/collections/#{params[:collection_id]}")
+    @current_collection.merge :roles => lws_api_get("/collections/#{params[:collection_id]}/roles")
   end
   
   def build_collections

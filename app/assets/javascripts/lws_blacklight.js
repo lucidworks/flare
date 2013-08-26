@@ -1,4 +1,4 @@
-function addDropdownSelectedBehavior() {
+function addDropdownSelectionBehavior() {
   $('.dropdown-menu.select li a').click(function() {
     var selText = $(this).text();
     $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+'<span class="caret"></span>');
@@ -7,6 +7,23 @@ function addDropdownSelectedBehavior() {
 
 function addToggleButtonBehavior() {
   $('.btn-toggle').click(function(e) {
+    e.preventDefault();
+  });
+}
+
+function addViewSelectionBehavior() {
+  var currentView = localStorage.getItem('view');
+  
+  $("#view-tabs > li").each(function() {
+    if ($(this).find(".btn-view").attr("data-view") == currentView) {
+      $('#view-tabs a[href="#view-' + currentView + '"]').tab('show')
+    } 
+  });
+  
+  $('.btn-view').click(function(e) {
+    var view = $(this).attr("data-view");
+    localStorage.setItem('view', view);
+  
     e.preventDefault();
   });
 }
@@ -25,8 +42,9 @@ function addCollapseBehavior() {
   
 (function($) {
   $(document).ready(function() {
-    addDropdownSelectedBehavior();
+    addDropdownSelectionBehavior();
     addToggleButtonBehavior();
+    addViewSelectionBehavior();
     addCollapseBehavior();
   });
 })(jQuery); 

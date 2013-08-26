@@ -164,11 +164,11 @@ class CatalogController < BaseController
   def solr_search_params(user_params = params || {})
     # Adapted from lwe-ui's search.rb#roles_for(user,collection)
     roles = []
-    if current_collection_roles && current_user
+    if current_collection[:roles] && current_user
       
       # ==> [{"users":["admin"],"name":"DEFAULT","filters":["*:*"],"groups":[]},{"users":["bob"],"name":"restricted","filters":["-search"],"groups":[]}]
       
-      current_collection_roles.each do |role|
+      current_collection[:roles].each do |role|
         roles << role["name"] if role["users"].include?(current_user.username)
       end
     end

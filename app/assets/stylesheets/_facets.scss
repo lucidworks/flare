@@ -53,6 +53,15 @@
     list-style: none;
     margin-bottom: 0;
     padding: 0;
+    
+    > li {
+      padding-bottom: 8px;
+      line-height: 1.1em;
+      
+      &:last-child {
+        padding-bottom: 4px;
+      }
+    }
   }
 }
 
