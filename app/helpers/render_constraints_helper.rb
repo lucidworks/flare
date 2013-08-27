@@ -17,7 +17,7 @@ module RenderConstraintsHelper
         
         content_tag :span, localized_params[:q], :class => 'applied-filter constraint query'
     else
-      "*:*".html_safe
+      content_tag :span, '*:*', :class => 'applied-filter constraint query'
     end
   end
   
