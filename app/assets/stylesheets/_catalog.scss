@@ -1,6 +1,21 @@
+/* = Results pagination & info
+-------------------------------------------------------------- */
+
+#sortAndPerPage {
+  padding: 12px 6px 12px 15px; 
+  
+  #sort-dropdown {
+    margin-top: -2px;
+  } 
+  
+  #per_page-dropdown {
+    margin-top: -2px;  
+  }
+}
+
 #document-info {
   @extend .well;
-  padding: 10px 19px;
+  padding: 10px 6px 10px 15px; 
 }
 
 /* =Documents
@@ -30,5 +45,60 @@
   
   .btn-toggle {
     padding: 0;
+  }
+}
+
+
+/* =Constraints
+-------------------------------------------------------------- */
+
+.constraints-container {
+  height: auto;
+  padding: 10px 6px 8px 15px; 
+}
+
+.constraints-label {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 2px;
+}
+
+#view-all-constraints {
+  margin: -2px 12px 0 0;
+}
+
+#startOverLink {
+  margin: -4px 0 0;
+}
+
+#applied-filters {
+  margin: 2px 0;
+  
+  dt {
+    font-weight: normal;
+    color: $gray;
+  }
+}
+
+.applied-filter.query {
+  display: inline-block;
+}
+
+.filter-name, .filter-value {
+  display: inline-block;
+} 
+
+.filter-value {
+  &:after {
+    content: "\00a0";
+  }  
+}
+
+.btn-filter {
+  padding: 0;
+  margin-right: 5px;
+  
+  &:hover {
+    text-decoration: none;
   }
 }

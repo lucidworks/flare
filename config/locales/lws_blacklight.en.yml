@@ -208,12 +208,13 @@ en:
         title: 'You searched for:'
         label: '%{label}:'
         remove:
-          value: 'Remove constraint %{value}'
-          label_value: 'Remove constraint %{label}: %{value}'
+          value: 'Remove constraint'
+          label: 'Remove constraint %{label}:'
       librarian_view:
         title: 'Librarian View'
         leader: 'LEADER %{leader}'
-      start_over: 'Start Over'
+      clear_all: 'Clear all'
+      view_all: 'View all'
       show:
         title: '%{document_title} - %{application_name}'
       rss_feed: 'RSS for results'

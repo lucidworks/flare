@@ -1,9 +1,14 @@
 <% if query_has_constraints? %>
   <div id="appliedParams" class="constraints-container">
     <span class="constraints-label"><%= t('blacklight.search.filters.title') %></span>
-
-    <%=link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" %>
+    <div class="btn-group pull-right"> 
+      <%- unless params[:f].blank? %>
+        <%= link_to (t('blacklight.search.view_all') + content_tag(:span, '', :class => 'caret')).html_safe, '#', 'data-toggle' => 'collapse', 'data-target' => '#applied-filters', :id => 'view-all-constraints', :class => 'btn btn-toggle collapsed' %>
+      <% end %>
+    
+      <%= link_to t('blacklight.search.clear_all'), url_for(:action=>'index'), :class => "btn", :id=>"startOverLink" %>
+    </div>
+    
     <%= render_constraints(params) %>  
-
   </div>
 <% end %>
