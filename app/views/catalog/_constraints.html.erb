@@ -1,14 +1,14 @@
-<% if query_has_constraints? %>
-  <div id="appliedParams" class="constraints-container">
-    <span class="constraints-label"><%= t('blacklight.search.filters.title') %></span>
-    <div class="btn-group pull-right"> 
-      <%- unless params[:f].blank? %>
-        <%= link_to (t('blacklight.search.view_filters') + content_tag(:span, '', :class => 'caret')).html_safe, '#', 'data-toggle' => 'collapse', 'data-target' => '#applied-filters', :id => 'view-all-constraints', :class => 'btn btn-toggle collapsed' %>
-      <% end %>
-    
-      <%= link_to t('blacklight.search.clear_filters'), url_for(:action=>'index'), :class => "btn", :id=>"startOverLink" %>
-    </div>
-    
-    <%= render_constraints(params) %>  
+<div id="appliedParams" class="constraints-container">
+  <span class="constraints-label"><%= t('blacklight.search.filters.title') %></span>
+  <div class="constraints-options"> 
+    <% if query_has_filters? %>
+      <div class="btn-group">
+        <%= link_to (t('blacklight.search.view_filters') + content_tag(:span, '', :class => 'caret')).html_safe, '#', 'data-toggle' => 'collapse', 'data-target' => '#applied-filters', :class => 'btn btn-toggle collapsed' %>
+      </div>
+      <div class="btn-group">
+        <%= link_to t('blacklight.search.clear_all'), url_for(:action=>'index'), :class => "btn" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <%= render_constraints(params) %>  
+</div>

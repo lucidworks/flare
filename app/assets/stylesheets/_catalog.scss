@@ -76,12 +76,12 @@
   padding-right: 2px;
 }
 
-#view-all-constraints {
-  margin: -2px 12px 0 0;
-}
-
-#startOverLink {
-  margin: -4px 0 0;
+.constraints-options {
+  float: right;
+  
+  .btn {
+    margin-top: -3px;
+  }
 }
 
 #applied-filters {

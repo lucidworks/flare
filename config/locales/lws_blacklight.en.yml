@@ -213,7 +213,7 @@ en:
       librarian_view:
         title: 'Librarian View'
         leader: 'LEADER %{leader}'
-      clear_filters: 'Clear filters'
+      clear_all: 'Clear all'
       view_filters: 'View filters'
       show:
         title: '%{document_title} - %{application_name}'

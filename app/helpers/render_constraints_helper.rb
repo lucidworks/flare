@@ -1,6 +1,26 @@
 module RenderConstraintsHelper
   include Blacklight::RenderConstraintsHelperBehavior
-
+  
+  def query_has_filters?(localized_params = params)
+    !(localized_params[:f].blank?)
+  end
+  
+  def render_constraints_query(localized_params = params)
+    # So simple don't need a view template, we can just do it here.
+    if (!localized_params[:q].blank?)
+      label =
+        if (localized_params[:search_field].blank? || (default_search_field && localized_params[:search_field] == default_search_field[:key] ) )
+          nil
+        else
+          label_for_search_field(localized_params[:search_field])
+        end
+        
+        content_tag :span, localized_params[:q], :class => 'applied-filter constraint query'
+    else
+      "*:*".html_safe
+    end
+  end
+  
   def render_constraints_filters(localized_params = params)
      return "".html_safe unless localized_params[:f]
      content = ["<dl id=\"applied-filters\" class=\"dl-horizontal collapse out\">\n"]
