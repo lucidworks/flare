@@ -1,7 +1,7 @@
-/* = Results pagination & info
+/* = Results headers
 -------------------------------------------------------------- */
 
-#sortAndPerPage {
+#sortAndPerPage { // need to refactor this into one generic header with changeable components
   padding: 12px 6px 12px 15px; 
   
   #sort-dropdown {
@@ -13,9 +13,22 @@
   }
 }
 
-#document-info {
+.results-header {
   @extend .well;
-  padding: 10px 6px 10px 15px; 
+  padding: 12px 6px 12px 15px; 
+  
+  .results-info {
+    float: left;
+    margin: 0;
+  }
+ 
+  .view-options {
+    float: right;
+    
+    .btn {
+      margin-top: -5px;
+    }
+  }
 }
 
 /* =Documents
