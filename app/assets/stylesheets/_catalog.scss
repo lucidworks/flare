@@ -35,6 +35,9 @@
 -------------------------------------------------------------- */
 
 #documents {
+  margin-left: 0;
+  list-style: none;
+  
   .document {
     padding-top: 4px
   }
@@ -43,6 +46,10 @@
     margin: 0;
     max-width: none;
     word-wrap: break-word;
+    
+    .doc-count {
+      font-weight: normal;
+    }
   }  
   
   .documentFunctions {
