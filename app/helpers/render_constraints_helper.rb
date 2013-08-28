@@ -1,6 +1,10 @@
 module RenderConstraintsHelper
   include Blacklight::RenderConstraintsHelperBehavior
   
+  def has_query?(localized_params = params)
+    !(localized_params[:q].blank?)
+  end
+  
   def query_has_filters?(localized_params = params)
     !(localized_params[:f].blank?)
   end

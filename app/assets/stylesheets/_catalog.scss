@@ -43,6 +43,7 @@
   }
   
   .index_title {
+    font-size: 14px;
     margin: 0;
     max-width: none;
     word-wrap: break-word;
@@ -89,12 +90,16 @@
   float: right;
   
   .btn {
-    margin-top: -3px;
+    margin: -5px 0 0;
   }
 }
 
 #applied-filters {
-  margin: 2px 0;
+  margin: 0;
+  
+  &.in {
+    margin-top: 2px;
+  }
   
   dt {
     font-weight: normal;
