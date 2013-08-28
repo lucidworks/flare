@@ -3,12 +3,12 @@
     <% if current_user %>
       <li>
         <p class="navbar-text">
-          Logged in as:<span class="current-user"><%= current_user.username %></span>
+          <span class="current-user"><%= current_user.username %></span>
         </p>
       </li>
     <% else %>
       <li>
-        <%= link_to t('blacklight.header_links.login'), new_user_session_path, :class => 'login-link' %>
+        <%= link_to t('blacklight.header_links.signin'), new_user_session_path %>
       </li>
     <% end %>
   <% end %>
@@ -32,7 +32,7 @@
         
         <% if current_user %>
           <li class="divider"></li>
-          <li><%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %></li>
+          <li><%= link_to t('blacklight.header_links.signout'), destroy_user_session_path %></li>
         <% end %>
       </ul>
     </div>
