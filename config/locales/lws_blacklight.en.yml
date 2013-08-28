@@ -85,7 +85,7 @@ en:
       need_login: 'Please log in to manage and view your saved searches.'
       no_searches: 'You have no saved searches'
       list_title: 'Your saved searches'
-      delete: 'delete'
+      delete: 'Delete'
 
     search_history:
       clear:
@@ -96,8 +96,8 @@ en:
       title: 'Search History'
       no_history: 'You have no search history'
       recent: 'Your recent searches'
-      forget: 'forget'
-      save: 'save'
+      forget: 'Forget'
+      save: 'Save'
 
     tools:
       title: 'Tools'
