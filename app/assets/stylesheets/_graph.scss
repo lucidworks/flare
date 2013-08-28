@@ -1,11 +1,11 @@
 #graph {
   margin: 30px 20px;
+  min-height: 400px;
 }
 
 /* bar graph */
 .d3bar {
   position: relative;
-  padding: 20px 0 10px 20px;
 }
 
 .axis path,
