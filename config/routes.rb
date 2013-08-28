@@ -1,8 +1,6 @@
 require 'lucid/prism' 
 
 LwsBlacklight::Application.routes.draw do
-  
-
   # /catalog/* route definitions, so tht /catalog/:collection_id can be used wildcardly
   # Commented out default ones from Blacklight that we don't want in there (for now at least)
   get 'catalog/opensearch', :as => "opensearch_catalog"
@@ -17,9 +15,7 @@ LwsBlacklight::Application.routes.draw do
   # get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
 
   # LWS collection selection
-  match 'catalog' => 'catalog#collections'
   get 'catalog/:collection_id', :to => 'catalog#index', :as => 'collection' 
-
 
   # NOT /bookmarks/file:/Users/erikhatcher/Documents/Test/LucidWorks%20Enterprise%20User%20Guide.pdf
   # but rather PUT /bookmarks?id=.... etc
@@ -30,14 +26,12 @@ LwsBlacklight::Application.routes.draw do
 
   Blacklight.add_routes(self, :except => [:bookmarks, :catalog])
   
-      
-
   devise_for :users
   
   # Prism's goal is to allow straight-forward templated "pass-through" of Solr responses  
   match "prism" => Lucid::Prism, :anchor => false 
   
-  root :to => "catalog#collections"
+  root :to => "collections#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

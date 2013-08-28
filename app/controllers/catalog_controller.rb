@@ -8,21 +8,21 @@ class CatalogController < BaseController
   
   # get search results from the solr index
   def index
-    extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') )
-    extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('blacklight.search.atom_feed') )
-    
-    (@response, @document_list) = get_search_results
-    @filters = params[:f] || []
-    
-    respond_to do |format|
-      format.html { save_current_search_params }
-      format.rss  { render :layout => false }
-      format.atom { render :layout => false }
+    if current_collection['name'].blank?
+      redirect_to root_path 
+    else
+      extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') )
+      extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('blacklight.search.atom_feed') )
+      
+      (@response, @document_list) = get_search_results
+      @filters = params[:f] || []
+      
+      respond_to do |format|
+        format.html { save_current_search_params }
+        format.rss  { render :layout => false }
+        format.atom { render :layout => false }
+      end
     end
-  end
-  
-  def collections
-    @collections = build_collections 
   end
   
   configure_blacklight do |config|
