@@ -4,7 +4,7 @@
   <% # main title container for doc partial view -%>
     <h4 class="document-title span7">
       <span class="document-count"><%= t('blacklight.search.documents.counter', :counter => (document_counter + 1 + @response.params[:start].to_i)) %></span>
-      <%= link_to document[:title].present? ? document[:title][0] : document.id, document.id %>
+      <%= link_to document[:title].present? ? document[:title][0] : document.id, document.id, :target => '_blank' %>
     </h4>
 
   <% # bookmark functions for items/docs -%>
