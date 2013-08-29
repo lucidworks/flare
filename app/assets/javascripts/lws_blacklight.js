@@ -23,7 +23,7 @@ function addViewSelectionBehavior() {
   $('.btn-view').click(function(e) {
     var view = $(this).attr("data-view");
     localStorage.setItem('view', view);
-  
+    
     e.preventDefault();
   });
 }

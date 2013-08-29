@@ -34,8 +34,8 @@ function setGraphType() {
   $('.graphtype').click(function(e) {
     var graphType = $(this).attr('data-graphtype');
   	$('#graph').attr('data-graphtype', graphType);
-  	e.preventDefault();
   	renderFacetGraph();
+  	e.preventDefault();
   });
 }
 

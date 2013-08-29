@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require d3.js
+//= require d3.v3
 //= require blacklight/blacklight
-//= require facets.js
+//= require facets
 //= require_tree ./graphs
-//= require lws_blacklight.js
+//= require lws_blacklight
 
