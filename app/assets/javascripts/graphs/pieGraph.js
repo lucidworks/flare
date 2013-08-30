@@ -32,6 +32,7 @@ function renderPieGraph(dataObject) {
       .data(pie(data))
     .enter().append("svg:a")
       .attr("xlink:href", function(d) { return d.data.assetLink; })
+      .attr("title", function(d) { return d.data.assetName; })
       .append("svg:g")
         .attr("class", "arc")
         .attr("d", arc);
