@@ -11,6 +11,11 @@ function addToggleButtonBehavior() {
   });
 }
 
+function addCollectionSelectionBehavior() {
+  localStorage.setItem('view', '');
+  localStorage.setItem('graph', '');
+}
+
 function addViewSelectionBehavior() {
   var currentView = localStorage.getItem('view');
   
@@ -44,6 +49,7 @@ function addCollapseBehavior() {
   $(document).ready(function() {
     addDropdownSelectionBehavior();
     addToggleButtonBehavior();
+    addCollectionSelectionBehavior();
     addViewSelectionBehavior();
     addCollapseBehavior();
   });
