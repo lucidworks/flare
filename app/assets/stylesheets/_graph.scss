@@ -3,9 +3,14 @@
   min-height: 400px;
 }
 
-/* bar graph */
+/* =Bar graphs
+-------------------------------------------------------------- */
 .d3bar {
   position: relative;
+  
+  .bar:hover {
+    opacity: .6;
+  }
 }
 
 .axis path,
@@ -19,7 +24,8 @@
   display: none;
 }
 
-/* pie graph */
+/* =Pie Charts
+-------------------------------------------------------------- */
 .arc path {
   stroke: #fff;
 }
@@ -27,4 +33,16 @@
 .d3pie {
   position: relative;
   left: 100px;
+  
+  .arc:hover {
+    opacity: .6;
+  }
+}
+
+/* =Legends
+-------------------------------------------------------------- */
+.d3legend-key {
+  &:hover {
+    opacity: .6;
+  }
 }

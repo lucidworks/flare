@@ -23,7 +23,7 @@ function renderBarGraph(dataObject) {
     .attr("class", "d3bar")
   
   // svg container element
-  var chart = d3.select('#graph').append("svg")
+  var chart = d3.select('.d3bar').append("svg")
     .attr('width', maxBarWidth + barLabelWidth + valueLabelWidth)
     .attr('height', gridLabelHeight + gridChartOffset + data.length * barHeight);
   // grid line labels
@@ -56,6 +56,7 @@ function renderBarGraph(dataObject) {
   var barsContainer = chart.append('g')
     .attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
   barsContainer.selectAll("rect").data(data).enter().append("rect")
+    .attr("class", "bar")
     .attr('y', y)
     .attr('height', yScale.rangeBand())
     .attr('width', function(d) { return x(barValue(d)); })

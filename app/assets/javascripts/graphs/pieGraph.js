@@ -45,20 +45,22 @@ function renderPieGraph(dataObject) {
       .attr("width", 200)
       .attr("height", radius * 2)
       .style("right", width * 3)
-    .selectAll("g")
-      .data(color.domain().slice().reverse())
+    .selectAll("g") 
+      .data(data, function(d) { return d.assetName; })
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 22 + ")"; });
 
   legend.append("rect")
+    .attr("class", "d3legend-key")
     .attr("width", 18)
     .attr("height", 18)
-    .style("fill", color);
+    .on("click", function(d) { window.location.href = d.assetLink; })
+    .style('fill', function(d) { return color(d.assetName); });
 
   legend.append("text")
     .attr("x", 24)
     .attr("y", 9)
     .attr("dy", ".35em")
     .style("font", "normal 12px Arial")
-    .text(function(d) { return d; }); 
+    .text(function(d) { return d.assetName; }); 
 }
