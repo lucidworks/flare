@@ -12,8 +12,10 @@ function addToggleButtonBehavior() {
 }
 
 function addCollectionSelectionBehavior() {
-  localStorage.setItem('view', '');
-  localStorage.setItem('graph', '');
+  $('.btn-collection').click(function(e) {
+    localStorage.setItem('view', '');
+    localStorage.setItem('graph', '');
+  });
 }
 
 function addViewSelectionBehavior() {
