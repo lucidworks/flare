@@ -9,7 +9,7 @@
   position: relative;
   
   .bar:hover {
-    opacity: .6;
+    @include opacity(60);
   }
 }
 
@@ -35,7 +35,7 @@
   left: 100px;
   
   .arc:hover {
-    opacity: .6;
+    @include opacity(60);
   }
 }
 
@@ -43,6 +43,6 @@
 -------------------------------------------------------------- */
 .d3legend-key {
   &:hover {
-    opacity: .6;
+    @include opacity(60);
   }
 }
