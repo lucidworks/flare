@@ -31,9 +31,16 @@ function setFacetFieldName(node) {
 }
 
 function setGraphType() {
+  var graphType = localStorage.getItem('graph');
+  
+  if (graphType && ($("#facets").length > 0)) {
+    $('#graph').attr('data-graphtype', graphType);
+  }
+  
   $('.graphtype').click(function(e) {
-    var graphType = $(this).attr('data-graphtype');
+    graphType = $(this).attr('data-graphtype');
   	$('#graph').attr('data-graphtype', graphType);
+  	localStorage.setItem('graph', graphType); 
   	renderFacetGraph();
   	e.preventDefault();
   });
@@ -107,8 +114,8 @@ function clearGraph() {
 
 (function($) {
   $(document).ready(function() {
+    setGraphType();
     addFacetSelectionBehavior();
     setFacetGroupActive();
-    setGraphType();
   });
 })(jQuery); 
