@@ -2,51 +2,26 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'sinatra'
-gem 'warbler'
+gem "devise"
+gem "devise-guests", "~> 0.3"
+gem "bootstrap-sass"
+gem 'blacklight'
+gem 'lucid_works', '0.9.5'
+gem "unicode", :platforms => [:mri_18, :mri_19]
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+platforms :jruby do
+  gem 'activerecord-jdbcsqlite3-adapter'
+  gem 'jruby-openssl'
+  gem 'warbler'
+end
 
-gem 'activerecord-jdbcsqlite3-adapter'
-
-gem 'jruby-openssl'
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem "font-awesome-sass-rails", "~> 3.0.2.2"
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyrhino'
-
+  gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
+
+  # The JavaScript interpreter to install on Linux. OS X uses Apple's JavaScriptCore.
+  gem 'therubyrhino'
 end
-
-gem 'jquery-rails'
-
-gem 'blacklight'
-
-# TODO: Use lucid_works gem to centralize and keep clean the LWS REST API
-# gem 'lucid_works', '0.9.3'
-#   * Had troubles incorporating this into my environment, so going straight HTTP + JSON:
-
-# ➜  lucidworks-ruby git:(master) ✗ jruby -S gem build lucid_works.gemspec                                                
-#   Successfully built RubyGem
-#   Name: lucid_works
-#   Version: 0.9.3
-#   File: lucid_works-0.9.3.gem
-
-# ➜  lws_blacklight git:(master) ✗ jruby -S bundle update
-# Fetching gem metadata from https://rubygems.org/...........
-# Fetching gem metadata from https://rubygems.org/..
-# Resolving dependencies...
-# Could not find gem 'lucid_works (= 0.9.3) java' in the gems available on this
-# machine.
-
-gem "unicode", :platforms => [:mri_18, :mri_19]
-gem "devise"
-gem "devise-guests", "~> 0.3"
-gem "bootstrap-sass"
-gem 'lucid_works', '0.9.5'
