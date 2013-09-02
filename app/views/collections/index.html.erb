@@ -11,7 +11,16 @@
   
   <ul id="collections-list" class="nav nav-tabs nav-stacked">
     <% @collections.each do |collection| %>
-      <li><%= link_to content_tag(:i, '', :class => 'icon-chevron-right') + collection.name, collection_path(collection.name), :class => 'btn-collection' %></li>
+      <li>
+        <a class="btn-collection" href="<%= collection_path(collection.name) %>" data-document-count="<%= collection.document_count %>">
+          <span class="collection-name">
+            <i class="icon-chevron-right"></i> <%= collection.name %>
+          </span>
+          <span class="collection-info">  
+            <i class="icon-file"></i><%= t('collection.documents') + " (" + number_with_delimiter(collection.document_count) + ")" %>
+          </span>  
+        </a> 
+      </li>
     <% end %>
   </ul>
 </div>

@@ -8,7 +8,7 @@ class CatalogController < BaseController
   
   # get search results from the solr index
   def index
-    if current_collection.name.blank?
+    if current_collection.name.blank? || current_collection.document_count == 0 
       redirect_to root_path 
     else
       extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') )

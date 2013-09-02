@@ -13,8 +13,13 @@ function addToggleButtonBehavior() {
 
 function addCollectionSelectionBehavior() {
   $('.btn-collection').click(function(e) {
-    localStorage.setItem('view', '');
-    localStorage.setItem('graph', '');
+    if ($(this).attr("data-document-count") > 0) {
+      localStorage.setItem('view', '');
+      localStorage.setItem('graph', '');
+    } else {
+      e.preventDefault();
+      alert("No documents have been indexed for this collection");
+    }
   });
 }
 
