@@ -7,7 +7,7 @@
 		    </div>
 		    <%- unless devise_controller? %>
     	  	<div class="span6" id="searchbar">
-        	  <% if current_collection.has_key?("name") %>
+        	  <% unless @current_collection.blank? %>
         	    <%= render_search_bar %>
         	  <% end %>
       	  </div>

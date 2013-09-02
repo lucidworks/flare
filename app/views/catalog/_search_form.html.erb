@@ -1,4 +1,4 @@
-<%= form_tag collection_path(current_collection['name']), :method => :get, :class => 'search-query-form form-inline clearfix' do %>
+<%= form_tag collection_path(current_collection.name), :method => :get, :class => 'search-query-form form-inline clearfix' do %>
   <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>   
   <% unless search_fields.empty? %>
     <div class="pull-left">

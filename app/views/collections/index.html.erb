@@ -10,8 +10,8 @@
   </div>
   
   <ul id="collections-list" class="nav nav-tabs nav-stacked">
-    <% @collections.delete_if {|c| c['name'] == 'LucidWorksLogs'}.each do |c| %>
-      <li><%= link_to content_tag(:i, '', :class => 'icon-chevron-right') + c['name'], collection_path(c['name']), :class => 'btn-collection' %></li>
+    <% @collections.each do |collection| %>
+      <li><%= link_to content_tag(:i, '', :class => 'icon-chevron-right') + collection.name, collection_path(collection.name), :class => 'btn-collection' %></li>
     <% end %>
   </ul>
 </div>

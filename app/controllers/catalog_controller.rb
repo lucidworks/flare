@@ -8,7 +8,7 @@ class CatalogController < BaseController
   
   # get search results from the solr index
   def index
-    if current_collection['name'].blank?
+    if current_collection.name.blank?
       redirect_to root_path 
     else
       extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') )
@@ -179,11 +179,11 @@ class CatalogController < BaseController
   def solr_search_params(user_params = params || {})
     # Adapted from lwe-ui's search.rb#roles_for(user,collection)
     roles = []
-    if current_collection[:roles] && current_user
+    if current_collection.roles && current_user
       
       # ==> [{"users":["admin"],"name":"DEFAULT","filters":["*:*"],"groups":[]},{"users":["bob"],"name":"restricted","filters":["-search"],"groups":[]}]
       
-      current_collection[:roles].each do |role|
+      current_collection.roles.each do |role|
         roles << role["name"] if role["users"].include?(current_user.username)
       end
     end
@@ -201,6 +201,6 @@ class CatalogController < BaseController
     # See also use of ENV['LWS_...'] in collection_manager_controller
     url ||= ENV['LWS_SOLR_URL']
     url ||= "#{ENV['LWS_CORE_URL']}/solr" if ENV['LWS_CORE_URL']
-    {:url => "#{url || 'http://127.0.0.1:8888/solr'}/#{current_collection['name']}"}
+    {:url => "#{url || 'http://127.0.0.1:8888/solr'}/#{current_collection.name}"}
   end
 end 
