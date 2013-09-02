@@ -35,6 +35,16 @@ function setGraphType() {
   
   if (graphType && ($("#facets").length > 0)) {
     $('#graph').attr('data-graphtype', graphType);
+    
+    $("#graph-options li").each(function() {
+      var graphOption = $(this).find("a");
+      
+      if (graphOption.attr("data-graphtype") == graphType) {
+        $(this).addClass("selected");
+      } else {
+        $(this).removeClass("selected");
+      }
+    });
   }
   
   $('.graphtype').click(function(e) {
