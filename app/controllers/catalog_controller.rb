@@ -177,18 +177,19 @@ class CatalogController < BaseController
   
   # Overrride Blacklight's solr_search_params to add current user's role(s) to the request, honoring LWS role filters
   def solr_search_params(user_params = params || {})
-    # Adapted from lwe-ui's search.rb#roles_for(user,collection)
-    roles = []
-    if current_collection.roles && current_user
-      
-      # ==> [{"users":["admin"],"name":"DEFAULT","filters":["*:*"],"groups":[]},{"users":["bob"],"name":"restricted","filters":["-search"],"groups":[]}]
-      
-      current_collection.roles.each do |role|
-        roles << role["name"] if role["users"].include?(current_user.username)
-      end
-    end
+    # Getting roles for current user adapted from lwe-ui's search.rb#roles_for(user,collection)
+    # But this is removed until the LWS authentication (with password) is baked in
+    # roles = []
+    # if current_collection.roles && current_user
+    #   
+    #   # ==> [{"users":["admin"],"name":"DEFAULT","filters":["*:*"],"groups":[]},{"users":["bob"],"name":"restricted","filters":["-search"],"groups":[]}]
+    #   
+    #   current_collection.roles.each do |role|
+    #     roles << role["name"] if role["users"].include?(current_user.username)
+    #   end
+    # end
     
-    super.merge :role => roles
+    super.merge :role => 'DEFAULT' # using DEFAULT until the above is incorporated
   end
 
   # Overriding blacklight_solr_config, but this is how it is accessed
