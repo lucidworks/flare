@@ -6,7 +6,6 @@ gem "devise"
 gem "devise-guests", "~> 0.3"
 gem "bootstrap-sass"
 gem 'blacklight'
-gem 'lucid_works', '0.9.5'
 gem "unicode", :platforms => [:mri_18, :mri_19]
 
 platforms :jruby do

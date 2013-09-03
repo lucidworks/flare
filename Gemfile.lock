@@ -83,13 +83,6 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    lucid_works (0.9.5)
-      activemodel
-      activesupport
-      json
-      nokogiri
-      rest-client (= 1.6.7)
-      rsolr (= 1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -130,8 +123,6 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rsolr (1.0.9)
       builder (>= 2.1.2)
     rubyzip (0.9.9)
@@ -184,7 +175,6 @@ DEPENDENCIES
   font-awesome-sass-rails (~> 3.0.2.2)
   jquery-rails
   jruby-openssl
-  lucid_works (= 0.9.5)
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sinatra

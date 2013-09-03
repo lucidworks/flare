@@ -20,13 +20,8 @@ function addToggleButtonBehavior() {
 
 function addCollectionSelectionBehavior() {
   $('.btn-collection').click(function(e) {
-    if ($(this).attr("data-document-count") > 0) {
-      localStorage.setItem('view', '');
-      localStorage.setItem('graph', '');
-    } else {
-      e.preventDefault();
-      alert("No documents have been indexed for this collection");
-    }
+    localStorage.setItem('view', '');
+    localStorage.setItem('graph', '');
   });
 }
 
