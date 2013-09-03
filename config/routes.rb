@@ -1,5 +1,3 @@
-require 'lucid/prism' 
-
 LwsBlacklight::Application.routes.draw do
   # /catalog/* route definitions, so tht /catalog/:collection_id can be used wildcardly
   # Commented out default ones from Blacklight that we don't want in there (for now at least)
