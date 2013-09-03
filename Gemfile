@@ -26,6 +26,23 @@ gem 'jquery-rails'
 
 gem 'blacklight'
 
+# TODO: Use lucid_works gem to centralize and keep clean the LWS REST API
+#   * Had troubles incorporating this into my environment, so going straight HTTP + JSON:
+
+# ➜  lucidworks-ruby git:(master) ✗ jruby -S gem build lucid_works.gemspec                                                
+#   Successfully built RubyGem
+#   Name: lucid_works
+#   Version: 0.9.3
+#   File: lucid_works-0.9.3.gem
+
+# ➜  lws_blacklight git:(master) ✗ jruby -S bundle update
+# Fetching gem metadata from https://rubygems.org/...........
+# Fetching gem metadata from https://rubygems.org/..
+# Resolving dependencies...
+# Could not find gem 'lucid_works (= 0.9.3) java' in the gems available on this
+# machine.
+
+# gem 'lucid_works', '0.9.3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

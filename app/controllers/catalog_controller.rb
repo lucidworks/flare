@@ -1,8 +1,14 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
-class CatalogController < ApplicationController  
+class CatalogController < ApplicationController 
+  
+  before_filter :check_collection_set
 
+  def check_collection_set
+    redirect_to :root unless session[:collection]
+  end
+  
   include Blacklight::Catalog
 
   configure_blacklight do |config|
@@ -122,6 +128,21 @@ class CatalogController < ApplicationController
     config.spell_max = 5
   end
 
+  # TODO: Coming soon, LWS basic login support
+  def solr_search_params(user_params = params || {})
+    # TODO: need to look up user roles, lazy loaded into session possibly
+    super.merge :role => 'DEFAULT'
+  end
 
+  # Overriding blacklight_solr_config, but this is how it is accessed
+  # def blacklight_solr
+  #   @solr ||=  RSolr.connect(blacklight_solr_config)
+  # end
+
+  def blacklight_solr_config
+    # Make the Solr URL dynamic based on the users session set collection, removes need/use of config/solr.yml
+    # TODO: need to see how this will affect test runs
+    {:url => "#{ENV['LWS_SOLR_URL'] || 'http://127.0.0.1:8888/solr'}/#{session[:collection]}"}
+  end
 
 end 
