@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="flare" default="war" basedir=".">
+  
+  <description>Packages the flare app as a WAR file</description>
+  
+  <property name="tmp.dir" location="tmp" />
+  <property name="tmp.build.dir" location="${tmp.dir}/build" />
+  <property name="gems.dir" location="${tmp.build.dir}/gems" />
+  <property name="gems.bin.dir" location="${gems.dir}/bin" />
+  
+  <path id="jruby-classpath">
+    <fileset dir="tools/jruby">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+  
+  <macrodef name="jruby">
+    <attribute name="args" />
+    <sequential>
+      <echo>jruby @{args}</echo>
+      <java classname="org.jruby.Main" fork="true" failonerror="true" maxmemory="500m">
+        <jvmarg value="-client" />
+        <jvmarg value="-Djruby.memory.max=-Xmx500m" />
+        <jvmarg value="-Xss2048k" />
+        <jvmarg value="-Djruby.stack.max=-Xss2048k" />
+        <jvmarg value="-Djruby.launch.inproc=true" />
+        <classpath refid="jruby-classpath" />
+        <env key="GEM_PATH" value="${gems.dir}" />
+        <env key="GEM_HOME" value="${gems.dir}" />
+        <arg line="@{args}" />
+      </java>
+    </sequential>
+  </macrodef>
+
+  <target name="setup">
+    <mkdir dir="tmp/build/gems" />
+    <jruby args="-S gem install tools/bundler/bundler-1.3.5.gem" />
+    <jruby args="${gems.bin.dir}/bundle install --gemfile=Gemfile --local" />
+  </target>
+  
+  <target name="init-db" depends="setup">
+    <delete dir="db" includes="production.*" />
+    <jruby args="${gems.bin.dir}/rake db:migrate db:seed RAILS_ENV=production" />
+  </target>
+  
+  <target name="package-assets" depends="setup">
+    <jruby args="${gems.bin.dir}/rake assets:clean assets:precompile RAILS_ENV=production" />
+  </target>
+  
+  <target name="clean">
+    <delete dir="${tmp.dir}" />
+    <delete dir="public/assets" />
+    <delete file="root.war" />
+    <delete dir=".bundle" />
+  </target>
+  
+  <target name="war" depends="clean, init-db, package-assets">
+    <jruby args="${gems.bin.dir}/warble war" />
+  </target>
+</project>
