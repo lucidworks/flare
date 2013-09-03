@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>LucidWorks :: lws_blacklight :: prism</title>
+  </head>
+  <body>
+    Collection: <%=session[:collection]%>
+    Core: <%=params[:core]%>
+    Handler: <%=params[:handler]%>
+
+    <h1>@search_results</h1>
+    <pre>
+      <%=h @search_results%>
+    </pre>
+
+    <h1>@document_list</h1>
+    <pre>
+      <%=h @document_list%>
+    </pre>
+  </body>
+</html>

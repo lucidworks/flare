@@ -1,0 +1,48 @@
+#graph {
+  margin: 30px 20px;
+  min-height: 400px;
+}
+
+/* =Bar graphs
+-------------------------------------------------------------- */
+.d3bar {
+  position: relative;
+  
+  .bar:hover {
+    @include opacity(60);
+  }
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+/* =Pie Charts
+-------------------------------------------------------------- */
+.arc path {
+  stroke: #fff;
+}
+
+.d3pie {
+  position: relative;
+  left: 100px;
+  
+  .arc:hover {
+    @include opacity(60);
+  }
+}
+
+/* =Legends
+-------------------------------------------------------------- */
+.d3legend-key {
+  &:hover {
+    @include opacity(60);
+  }
+}

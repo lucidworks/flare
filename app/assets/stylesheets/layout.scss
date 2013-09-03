@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -61px;
+  
+}
+
+#main-container {
+  padding: 80px 0;
+}
+
+#content {
+  @include clearfix();
+}
+
+footer {
+  height: 60px;
+  border-top: 1px solid #e5e5e5;
+  
+  p {
+    margin: 20px 0;
+    text-align: center;
+    line-height: 1.4em;
+  }
+}
+
+/* grid */
+.center {
+  margin: 0 auto !important;
+  float: none !important;     
+}

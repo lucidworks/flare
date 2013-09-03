@@ -1,0 +1,30 @@
+.jumbotron {
+  padding: 20px 60px 0 60px;
+  background: none;
+  
+  h1 {
+    color: #a35fe7;
+    font-size: 42px;
+    margin: 0 0 20px;
+  }
+  
+  strong {
+    color: $gray;
+  }
+}
+
+#collections-list {
+  padding: 0 60px;
+  
+  > li {
+    padding: 4px 0;
+    
+    a {
+      font-size: 15px;
+    }
+  }
+  
+  .collection-info {
+    float: right;
+  }
+}

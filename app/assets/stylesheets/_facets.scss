@@ -1,0 +1,102 @@
+#facets {
+  h2 {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    color: $grayLight;
+  }
+  
+  .facets-group {
+    .accordion-heading {
+      &:hover {
+        background: $grayLighter;
+      }
+      
+      a.facets-toggle {      
+        .icon-chevron-right {
+          display: block;  
+          float: right;
+          line-height: 20px;
+          color: $grayLight;
+        }
+        
+        &:not(.collapsed) {
+          .icon-chevron-right {
+            @include rotate(90deg);  
+          }
+        }
+        
+        &:hover, &:active, &:focus {
+          text-decoration: none;
+          
+          .icon-chevron-right {
+            color: $gray;
+          }
+        }
+      }
+    }
+    
+    &.active {
+      .accordion-heading {
+        background: $linkColor;
+        
+        a.facets-toggle {
+          color: $white;
+          
+          .icon-chevron-right {
+            color: $white;
+          }
+        }
+      }  
+    }
+  }
+  
+  .list-facets {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    
+    > li {
+      padding-bottom: 8px;
+      line-height: 1.1em;
+      
+      &:last-child {
+        padding-bottom: 4px;
+      }
+    }
+  }
+}
+
+.facet_pagination {
+  @extend .clearfix;
+  
+  + .modal-header {
+    border: none;
+    padding: 0 15px 0 0;
+  }
+}
+
+.facet_extended_list {
+  .sort_options {
+    text-align:right;
+  }
+
+  .prev_next_links {
+    float:left;
+  }
+}
+
+ul.facet_extended_list {
+	clear:both;
+	margin:1.5em 0;
+
+  li {
+    list-style:none;
+    margin:0.5em 0;
+  }
+
+   .count {
+     float:right;
+   }
+}

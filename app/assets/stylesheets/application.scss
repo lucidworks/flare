@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import 'font-awesome';
+@import "blacklight/blacklight";
+
+/*lws blacklight theme */
+@import "bootstrap-overrides";
+@import "base";
+@import "layout";
+@import "form";
+@import "misc";
+@import "_header";
+@import "_btns";
+@import "_collections";
+@import "_catalog";
+@import "_facets";
+@import "_graph";
+@import "_table";

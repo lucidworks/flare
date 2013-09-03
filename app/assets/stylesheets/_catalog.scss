@@ -1,0 +1,131 @@
+/* = Results headers
+-------------------------------------------------------------- */
+
+#sortAndPerPage { // need to refactor this into one generic header with changeable components
+  padding: 12px 6px 12px 15px; 
+  
+  #sort-dropdown {
+    margin-top: -2px;
+  } 
+  
+  #per_page-dropdown {
+    margin-top: -2px;  
+  }
+}
+
+.results-header {
+  @extend .well;
+  padding: 12px 6px 12px 15px; 
+  
+  .results-info {
+    float: left;
+    margin: 0;
+  }
+ 
+  .view-options {
+    float: right;
+    
+    .btn {
+      margin-top: -5px;
+    }
+  }
+}
+
+/* =Documents
+-------------------------------------------------------------- */
+
+#documents {
+  margin-left: 0;
+  list-style: none;
+  
+  .document {
+    padding-top: 4px
+  }
+  
+  .document-title {
+    margin: 0;
+    max-width: none;
+    word-wrap: break-word;
+    
+    .document-count {
+      font-weight: normal;
+    }
+  }  
+  
+  .documentFunctions {
+    margin: 0;
+    
+    .bookmark_toggle {
+      float: right;
+      margin: 0;
+    }
+  }
+  
+  .document-body p {
+    margin-bottom: 4px;
+  }
+  
+  .btn-toggle {
+    padding: 0;
+  }
+}
+
+
+/* =Constraints
+-------------------------------------------------------------- */
+
+.constraints-container {
+  height: auto;
+  padding: 10px 6px 9px 15px; 
+}
+
+.constraints-label {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 2px;
+}
+
+.constraints-options {
+  float: right;
+  
+  .btn {
+    margin: -5px 0 0;
+  }
+}
+
+#applied-filters {
+  margin: 0;
+  
+  &.in {
+    margin-top: 2px;
+  }
+  
+  dt {
+    font-weight: normal;
+    color: $gray;
+  }
+}
+
+.applied-filter.query {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.filter-name, .filter-value {
+  display: inline-block;
+} 
+
+.filter-value {
+  &:after {
+    content: "\00a0";
+  }  
+}
+
+.btn-filter {
+  padding: 0;
+  margin-right: 5px;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}

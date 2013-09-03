@@ -1,0 +1,23 @@
+<% if current_or_guest_user %>
+  <%- existing_bookmark = current_or_guest_user.existing_bookmark_for(document.id) -%>
+  <%- 
+  # Note these two forms are pretty similar but for different :methods, classes, and labels. 
+  # but it was simpler to leave them seperate instead of DRYing them, got confusing trying that.
+  # the data-doc-id attribute is used by our JS that converts to a checkbox/label.
+  -%>  
+  <% unless existing_bookmark %>  
+
+      <%= form_tag( bookmark_path( :id => document.id ), :method => :put, :class => "bookmark_toggle", "data-doc-id" => document.id) do %>   
+        <%= submit_tag(t('blacklight.bookmarks.add.button'), :id => "bookmark_toggle_#{document.id.to_s.parameterize}", :class => "bookmark_add") %>
+      <% end %>
+  
+  <% else %>
+  
+      <%= form_tag( bookmark_path( :id => document.id  ), :method => :delete, :class => "bookmark_toggle", "data-doc-id" => document.id) do %>  
+        <%= submit_tag(t('blacklight.bookmarks.remove.button'), :id => "bookmark_toggle_#{document.id.to_s.parameterize}", :class => "bookmark_remove") %>
+      <% end %>
+      
+  <% end %>
+<% else %>
+  &nbsp;
+<% end %>

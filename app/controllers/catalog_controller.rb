@@ -1,16 +1,30 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
-class CatalogController < ApplicationController 
-  
-  before_filter :check_collection_set
-
-  def check_collection_set
-    redirect_to :root unless session[:collection]
-  end
+class CatalogController < BaseController
+  layout 'lws_blacklight'
   
   include Blacklight::Catalog
-
+  
+  # get search results from the solr index
+  def index
+    if current_collection.name.blank? || current_collection.document_count == 0 
+      redirect_to root_path 
+    else
+      extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') )
+      extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('blacklight.search.atom_feed') )
+      
+      (@response, @document_list) = get_search_results
+      @filters = params[:f] || []
+      
+      respond_to do |format|
+        format.html { save_current_search_params }
+        format.rss  { render :layout => false }
+        format.atom { render :layout => false }
+      end
+    end
+  end
+  
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
@@ -127,22 +141,66 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
   end
+  
+  # #email overridden to add catalog_id to the redirects
+  # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
+  def email
+    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
+    if request.post?
+      if params[:to]
+        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+        
+        if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
+          email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
+        else
+          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
+        end
+      else
+        flash[:error] = I18n.t('blacklight.email.errors.to.blank')
+      end
 
-  # TODO: Coming soon, LWS basic login support
+      unless flash[:error]
+        email.deliver 
+        flash[:success] = "Email sent"
+        redirect_to catalog_path(params['id'], :collection_id => params[:collection_id]) unless request.xhr?
+      end
+    end
+
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
+  
+  
+  # Overrride Blacklight's solr_search_params to add current user's role(s) to the request, honoring LWS role filters
   def solr_search_params(user_params = params || {})
-    # TODO: need to look up user roles, lazy loaded into session possibly
-    super.merge :role => 'DEFAULT'
+    # Adapted from lwe-ui's search.rb#roles_for(user,collection)
+    roles = []
+    if current_collection.roles && current_user
+      
+      # ==> [{"users":["admin"],"name":"DEFAULT","filters":["*:*"],"groups":[]},{"users":["bob"],"name":"restricted","filters":["-search"],"groups":[]}]
+      
+      current_collection.roles.each do |role|
+        roles << role["name"] if role["users"].include?(current_user.username)
+      end
+    end
+    
+    super.merge :role => roles
   end
 
   # Overriding blacklight_solr_config, but this is how it is accessed
   # def blacklight_solr
   #   @solr ||=  RSolr.connect(blacklight_solr_config)
   # end
-
   def blacklight_solr_config
     # Make the Solr URL dynamic based on the users session set collection, removes need/use of config/solr.yml
     # TODO: need to see how this will affect test runs
-    {:url => "#{ENV['LWS_SOLR_URL'] || 'http://127.0.0.1:8888/solr'}/#{session[:collection]}"}
+    # See also use of ENV['LWS_...'] in collection_manager_controller
+    url ||= ENV['LWS_SOLR_URL']
+    url ||= "#{ENV['LWS_CORE_URL']}/solr" if ENV['LWS_CORE_URL']
+    {:url => "#{url || 'http://127.0.0.1:8888/solr'}/#{current_collection.name}"}
   end
-
 end 

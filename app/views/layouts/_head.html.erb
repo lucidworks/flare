@@ -1,0 +1,11 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= h(@page_title || application_name) %></title>
+  <link href="<%= opensearch_catalog_path(:format => 'xml', :only_path => false) %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
+  <%= favicon_link_tag asset_path('favicon.ico') %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag 'modernizr' %>
+  <%= csrf_meta_tags %>
+  <%= raw(render_head_content) %> 
+</head>

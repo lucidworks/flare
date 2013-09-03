@@ -1,0 +1,16 @@
+<div id="appliedParams" class="constraints-container">
+  <span class="constraints-label"><%= t('blacklight.search.filters.title') %></span>
+  <div class="constraints-options"> 
+    <% if query_has_filters? %>
+      <div class="btn-group">
+        <%= link_to (t('blacklight.search.view_filters') + content_tag(:span, '', :class => 'caret')).html_safe, '#', 'data-toggle' => 'collapse', 'data-target' => '#applied-filters', :class => 'btn btn-toggle collapsed' %>
+      </div>
+    <% end %>
+    <% if has_query? || query_has_filters? %>
+      <div class="btn-group">
+        <%= link_to t('blacklight.search.clear_all'), url_for(:action=>'index'), :class => "btn" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render_constraints(params) %>  
+</div>

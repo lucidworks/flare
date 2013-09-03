@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <%= render :partial => 'layouts/head' %>
+  <% onload_text = "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
+  <body onload="<%= onload_text %>" class="<%= render_body_class %>">
+    <div id="wrap">
+      <%= render :partial => 'shared/header_navbar' %>
+      <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
+  
+      <!-- /container -->
+      <div id="main-container" class="container <%= 'has_constraints' if query_has_constraints? %>">
+        <!-- Top bar -->
+        <div id="search-found" class="row hidden-phone">
+          <%= topbar_items.join('').html_safe %>
+        </div>
+        <!-- /Top bar -->
+        <div class="row">
+          <div class="span12">
+            <div id="main-flashes">
+              <%= render :partial=>'/flash_msg' %>
+            </div>
+          </div>    
+        </div>              
+        <div class="row">
+          <%= yield %>
+       </div>   
+      </div>
+    </div>
+    <%= render :partial => 'shared/footer' %>
+    <div id="load-javascripts">
+      <%= javascript_include_tag 'application' %>
+    </div>
+  </body>
+</html>

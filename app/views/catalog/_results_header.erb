@@ -1,0 +1,26 @@
+<div class="results-header">
+   <p class="results-info">
+     <%= render_documents_info(@response) %>
+   </p>
+   
+ <div class="view-options">
+   <div class="btn-group">
+     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+       Analyses<span class="caret"></span>
+     </a>
+     <ul class="dropdown-menu select">
+       <li class="selected"><a href="#" href="#">Facet Count</a></li>
+     </ul>
+   </div>
+   
+   <div id="graph-options" class="btn-group">
+     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+       Graph Type<span class="caret"></span>
+     </a>
+     <ul class="dropdown-menu select">
+       <li><a class="graphtype" href="#" data-graphtype="bar" href="#">Bar Graph</a></li>
+       <li class="selected"><a class="graphtype" href="#" data-graphtype="pie" href="#">Pie Chart</a></li>
+     </ul>
+   </div>
+ </div>
+</div>

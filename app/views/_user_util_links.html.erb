@@ -1,0 +1,44 @@
+<ul class="nav nav-user">
+  <% if has_user_authentication_provider? %>
+    <% if current_user %>
+      <li>
+        <p class="navbar-text">
+          <span class="current-user"><%= current_user.username %></span>
+        </p>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to t('blacklight.header_links.signin'), new_user_session_path %>
+      </li>
+    <% end %>
+  <% end %>
+  
+  <li>
+    <div class="btn-group btn-tools">
+      <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-cog icon-black"></i><span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <% if current_or_guest_user && params[:collection_id] %>
+          <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path(:collection_id => params[:collection_id]) %></li>
+          <li class="divider"></li>
+        <% end %>
+        
+        <% if has_user_authentication_provider? and current_user %>
+          <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
+          <li class="divider"></li>
+        <% end %>
+        <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
+        
+        <% if current_user %>
+          <li class="divider"></li>
+          <li><%= link_to t('blacklight.header_links.signout'), destroy_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </li> 
+</ul> 
+  
+  
+  
+  

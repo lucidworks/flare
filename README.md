@@ -73,6 +73,23 @@ the same application will be spiffy.
     [2013-05-31 14:26:44] INFO  WEBrick 1.3.1
     [2013-05-31 14:26:46] INFO  ruby 1.9.3 (2013-05-16) [java]
     [2013-05-31 14:26:46] INFO  WEBrick::HTTPServer#start: pid=744 port=3000  
+    
+## Environment variables
+
+This app will use the following environment variables to access LWS core API, user API, and Solr itself, falling back to the defaults specified:
+    
+* LWS_USER_API_BASE:
+  defaults to http://127.0.0.1:8989 (uses /api/users/#{username} from the base)
+
+* LWS_CORE_URL: defaults to http://127.0.0.1:8888
+
+* LWS_API_URL: defaults to #{LWS_CORE_URL}/api, this is the base URL used for all LWS core (non-user) api, such as getting a list of available collections
+
+* LWS_SOLR_URL: defaults to #{LWS_CORE_URL}/solr (collections are accessed from this Solr base url, such as /collection1/lucid?q=*:*...)
+
+For example, LWS developers may run the LWS (lwe-ui) admin UI application using the default Rails port of 3000, so lws_blacklight can be run like this:
+
+    LWS_USER_API_BASE=http://127.0.0.1:3000 jruby -S rails s -p 8080
 
 # References
 

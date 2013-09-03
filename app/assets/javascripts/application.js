@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//
-// Required by Blacklight
+//= require bootstrap
+//= require d3.v3
 //= require blacklight/blacklight
-//= require_tree .
+//= require facets
+//= require_tree ./graphs
+//= require lws_blacklight
+

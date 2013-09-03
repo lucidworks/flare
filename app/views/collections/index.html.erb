@@ -1,0 +1,26 @@
+<div id="content" class="span12">
+  <div class="hero-unit jumbotron">
+    <h1>Welcome to Ultraviolet, powered by Blacklight</h1>
+    
+    <p class="lead">Ultraviolet is a front-end user interface for LucidWorks Search and Solr, developed by LucidWorks.</p>
+    
+    <p class="lead">Ultraviolet is based on project Blacklight, an open source discovery interface for Solr originally created by Erik Hatcher, Solr committer and LucidWorks cofounder. Blacklight is now a thriving open source project whose contributors and users include the University of Virginia, Stanford University, Johns Hopkins University, and WGBH.</p>
+    
+    <p class="lead"><strong>Select a collection below to get started!</strong></p>
+  </div>
+  
+  <ul id="collections-list" class="nav nav-tabs nav-stacked">
+    <% @collections.each do |collection| %>
+      <li>
+        <a class="btn-collection" href="<%= collection_path(collection.name) %>" data-document-count="<%= collection.document_count %>">
+          <span class="collection-name">
+            <i class="icon-chevron-right"></i> <%= collection.name %>
+          </span>
+          <span class="collection-info">  
+            <i class="icon-file"></i><%= t('collection.documents') + " (" + number_with_delimiter(collection.document_count) + ")" %>
+          </span>  
+        </a> 
+      </li>
+    <% end %>
+  </ul>
+</div>

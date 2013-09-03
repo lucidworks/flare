@@ -1,0 +1,45 @@
+.table td {
+  vertical-align: middle;
+  
+  &.query {
+    width: 90%;  
+  }
+  
+  &.actions {
+    width: 10%;
+    
+    .button_to {
+      margin: 0;
+    } 
+  }
+  
+  .constraint {
+    display: block;
+    text-indent: -2em;
+    padding-left: 2em;
+    margin-right: 2em;
+  
+    .search {
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
+  
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    .filterName, .filterSeparator {
+      color: $gray; 
+    }
+    
+    .filterName {
+      padding-right: 3px;
+    }
+  }
+}
+
+.table-options {
+  float: right;
+  margin: 0 0 10px;
+}
+

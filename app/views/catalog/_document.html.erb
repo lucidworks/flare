@@ -1,0 +1,16 @@
+<% # container for a single doc -%>
+<li class="document <%= render_document_class document %>">
+  
+  <%= render :partial => 'document_header', :locals => { :document => document, :document_counter => document_counter } %>
+
+  <%= render :partial => 'document_body', :locals => { :document => document } %>
+  
+  <a class="btn btn-link btn-toggle collapsed" href="#" data-toggle="collapse" data-target="#doc<%= document_counter %>">
+    more<span class="caret"></span>
+  </a>
+
+  <div id="doc<%= document_counter %>" class="collapse out">
+    <% # main container for doc partial view -%>
+    <%= render_document_partial document, :index %>
+  </div>
+</li>

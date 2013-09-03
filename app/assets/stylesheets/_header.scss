@@ -1,0 +1,141 @@
+.navbar {
+  .brand {  
+    width: 141px;
+    padding: 0;
+    margin: 0;
+    line-height: 34px;
+    @include box-shadow(none);
+  }
+}
+
+.navbar-fixed-top {
+  z-index:1000;
+  position:absolute;  
+
+  .navbar-inner {
+    padding: 4px 0;
+    background-color: #f1f1f1;
+    background-image: none;
+    @include box-shadow(none);
+    border-bottom: 1px solid #e8e8e8;
+  }
+}
+
+#searchbar {
+  padding: 6px 0 0;
+}
+
+.search-query-form {
+  margin: 0;
+}
+
+.search-query-form {
+  margin-bottom: 0;
+}
+
+.navbar .nav-user {
+  float: right;
+  margin: 0;
+  
+  li > a {
+    text-shadow: none;
+  }
+  
+  .navbar-text {
+    line-height: 20px;
+  }
+  
+  .current-user {
+    display: inline-block;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  .btn-tools {
+    > .btn {
+      font-size: 16px;
+      padding: 4px 0;
+    }
+    
+    > a {
+      color: $gray;
+      padding: 4px 8px;
+      
+      &:hover, &:active, &:focus {
+        color: $grayLight;
+        text-decoration: none;
+        background: none;
+        @include box-shadow(none);
+      }
+      
+      .caret {
+        border-bottom-color: $gray;
+        border-top-color: $gray;
+        margin-left: 0;
+      }
+    }
+    
+    .dropdown-menu {
+      left: -130px;
+    }
+    
+    &.open {
+      .dropdown-toggle {
+        background: none;
+        @include box-shadow(none); 
+      }
+    }
+  }
+}
+
+.ajax_form {
+  margin-bottom: 0;
+}
+
+.constraints-container {
+  @extend .well;
+  margin: 0 0 20px;
+  padding: 10px 8px 6px;
+  height: 30px;
+  width: auto;
+}
+
+span.constraints-label {
+  font-weight:bold;
+}
+
+.appliedFilter {
+	background: $constraint_bg_color;
+	border:1px solid $constraint_border_color;
+	display:inline-block;
+	margin-bottom:0.66em;
+	margin-right:0.33em;
+	padding:3px 3px 3px 1.5em;
+  padding-right:50px;
+	position:relative;
+  @include border-radius(15px 15px 15px 15px);
+
+  .btnRemove {
+    background:asset_url('blacklight/remove.gif', image) no-repeat center center;
+    border-bottom:none;
+    border-left:1px solid $constraint_border_color;
+    display:block;
+    height:100%;
+    outline:none;
+    position:absolute;
+    right:0;
+    text-indent:-99999px;
+    top:0;
+    width:32px;
+    z-index:5;
+  }
+
+  .btnRemove:active,.btnRemove:focus {
+    border:1px dotted $constraint_border_active_color;
+  }
+
+  .filterName {
+    background:asset_url('blacklight/separator.gif',image) no-repeat right center;
+    padding-right:14px;
+  }
+}

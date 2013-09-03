@@ -1,0 +1,10 @@
+<% # main container for facets/limits menu -%>
+<% if has_facet_values? %>
+  <div id="facets" class="accordion">
+    <div class="accordion-group">
+      <h2>LIMIT YOUR SEARCH</h2>
+    </div>
+    
+    <%= render_facet_partials %>
+  </div>
+<% end %>
