@@ -51,7 +51,7 @@
   <target name="clean">
     <delete dir="${tmp.dir}" />
     <delete dir="public/assets" />
-    <delete file="root.war" />
+    <delete file="flare.war" />
     <delete dir=".bundle" />
   </target>
   
