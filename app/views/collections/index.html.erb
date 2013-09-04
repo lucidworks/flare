@@ -10,13 +10,16 @@
   </div>
   
   <ul id="collections-list" class="nav nav-tabs nav-stacked">
-    <% @collections.delete_if {|collection| collection["name"] == 'LucidWorksLogs'}.each do |collection| %>
+    <% @collections.delete_if {|collection| collection['name'] == 'LucidWorksLogs'}.each do |collection| %>
       <li>
-        <a class="btn-collection" href="<%= collection_path(collection["name"]) %>">
+        <a class="btn-collection" href="<%= collection_path(collection["name"]) %>" data-document-count="<%= collection["numFound"] %>">
           <span class="collection-name">
             <i class="icon-chevron-right"></i> <%= collection["name"] %>
-          </span> 
-        </a> 
+          </span>
+          <span class="collection-info">
+            <i class="icon-file"></i><%= t('collection.documents') + " (" + number_with_delimiter(collection["numFound"]) + ")" %>
+          </span>
+        </a>
       </li>
     <% end %>
   </ul>

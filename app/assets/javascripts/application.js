@@ -18,4 +18,3 @@
 //= require facets
 //= require_tree ./graphs
 //= require lws_blacklight
-
