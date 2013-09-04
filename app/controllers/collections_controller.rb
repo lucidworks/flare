@@ -1,5 +1,5 @@
 class CollectionsController < BaseController
-  layout 'lws_blacklight'
+  layout 'lw_flare'
   
   def index
     @collections = lws_api_get('/collections')
