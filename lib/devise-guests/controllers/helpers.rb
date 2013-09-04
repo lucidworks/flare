@@ -1,5 +1,5 @@
 # The DeviseGuests helpers needed to be overrriden to adjust define_helpers, which is unfortunately hardcoded to use email instead of username that
-# is used in the lws_blacklight app
+# is used in the lw_flare app
 # TODO: There is an open issue on the devise-guests plugin (a Blacklight team derived plugin) to fix this
 module DeviseGuests::Controllers
   module Helpers

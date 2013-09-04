@@ -1,5 +1,5 @@
-<%= form_tag collection_path(current_collection.name), :method => :get, :class => 'search-query-form form-inline clearfix' do %>
-  <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>   
+<%= form_tag collection_path(current_collection['name']), :method => :get, :class => 'search-query-form form-inline clearfix' do %>
+  <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>
   <% unless search_fields.empty? %>
     <div class="pull-left">
       <label for="search_field" class="hide-text"><%= t('blacklight.search.form.search_field.label') %></label>

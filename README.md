@@ -43,9 +43,9 @@ And use this to start the crawl process for your starting collection:
     
 ## Running pre-built app
 
-If you've got a pre-built lws_blacklight.war, you can run it using:
+If you've got a pre-built lw_flare.war, you can run it using:
 
-    java -jar lws_blacklight.war
+    java -jar lw_flare.war
 
 The current app configuration is set to use http://localhost:8888/solr/collection1 as the LucidWorks Search Solr server endpoint.
 
@@ -87,7 +87,7 @@ This app will use the following environment variables to access LWS core API, us
 
 * LWS_SOLR_URL: defaults to #{LWS_CORE_URL}/solr (collections are accessed from this Solr base url, such as /collection1/lucid?q=*:*...)
 
-For example, LWS developers may run the LWS (lwe-ui) admin UI application using the default Rails port of 3000, so lws_blacklight can be run like this:
+For example, LWS developers may run the LWS (lwe-ui) admin UI application using the default Rails port of 3000, so lw_flare can be run like this:
 
     LWS_USER_API_BASE=http://127.0.0.1:3000 jruby -S rails s -p 8080
 

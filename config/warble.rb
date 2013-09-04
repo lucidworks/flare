@@ -1,5 +1,6 @@
+
 # Disable Rake-environment-task framework detection by uncommenting/setting to false
-# Warbler.framework_detection = false
+Warbler.framework_detection = false
 
 # Warbler web application assembly configuration file
 Warbler::Config.new do |config|
@@ -8,16 +9,16 @@ Warbler::Config.new do |config|
   # - gemjar: package the gem repository in a jar file in WEB-INF/lib
   # - executable: embed a web server and make the war executable
   # - compiled: compile .rb files to .class files
-  config.features = %w(executable runnable)
+  # config.features = %w(gemjar)
 
   # Application directories to be included in the webapp.
-  # config.dirs = %w(app config db lib log script vendor tmp)
+  config.dirs = %w(app config lib log vendor tmp)
 
   # Additional files/directories to include, above those in config.dirs
-  # config.includes = FileList["db"]
+  config.includes = FileList["config.ru", "Rakefile"]
 
   # Additional files/directories to exclude
-  # config.excludes = FileList["lib/tasks/*"]
+  config.excludes = FileList["app/assets/**/*", "lib/assets/**/*", "lib/tasks/*", "lib/dev/*", "tmp/**/*", "vendor/cache/*", "vendor/solr/**/*"]
 
   # Additional Java .jar files to include.  Note that if .jar files are placed
   # in lib (and not otherwise excluded) then they need not be mentioned here.
@@ -42,7 +43,7 @@ Warbler::Config.new do |config|
 
   # An array of Bundler groups to avoid including in the war file.
   # Defaults to ["development", "test", "assets"].
-  config.bundle_without = ["test","assets"] # Overridden to keep "development" environment stuff
+  # config.bundle_without = []
 
   # Other gems to be included. If you don't use Bundler or a gemspec
   # file, you need to tell Warbler which gems your application needs
@@ -71,14 +72,17 @@ Warbler::Config.new do |config|
   # Array of regular expressions matching relative paths in gems to be
   # excluded from the war. Defaults to empty, but you can set it like
   # below, which excludes test files.
-  # config.gem_excludes = [/^(test|spec)\//]
+  config.gem_excludes = [
+    /^(test|spec)\//,
+    /jruby-(core|rack|stdlib).*\.jar/ # These jars are installed under WEB-INF/lib, don't duplicate them under WEB-INF/gems
+  ]
 
   # Pathmaps for controlling how application files are copied into the archive
   # config.pathmaps.application = ["WEB-INF/%p"]
 
   # Name of the archive (without the extension). Defaults to the basename
   # of the project directory.
-  config.jar_name = "lws_blacklight"
+  config.jar_name = 'flare'
 
   # Name of the MANIFEST.MF template for the war file. Defaults to a simple
   # MANIFEST.MF that contains the version of Warbler used to create the war file.
@@ -118,13 +122,13 @@ Warbler::Config.new do |config|
   # * <tt>winstone</tt> (default) - Winstone 0.9.10 from sourceforge
   # * <tt>jenkins-ci.winstone</tt> - Improved Winstone from Jenkins CI
   # * <tt>jetty</tt> - Embedded Jetty from Eclipse
-  # config.webserver = 'jetty'
+  config.webserver = 'jetty'
 
   # Value of RAILS_ENV for the webapp -- default as shown below
-  config.webxml.rails.env = ENV['RAILS_ENV'] || 'development' # overridden to default to development instead of production
+  # config.webxml.rails.env = ENV['RAILS_ENV'] || 'production'
 
   # Application booter to use, one of :rack, :rails, or :merb (autodetected by default)
-  # config.webxml.booter = :rails
+  config.webxml.booter = :rack
 
   # Set JRuby to run in 1.9 mode.
   # config.webxml.jruby.compat.version = "1.9"
