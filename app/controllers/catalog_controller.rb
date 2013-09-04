@@ -2,7 +2,7 @@
 require 'blacklight/catalog'
 
 class CatalogController < BaseController
-  layout 'lws_blacklight'
+  layout 'lw_flare'
   
   include Blacklight::Catalog
   

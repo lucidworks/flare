@@ -17,4 +17,4 @@
 //= require blacklight/blacklight
 //= require facets
 //= require_tree ./graphs
-//= require lws_blacklight
+//= require lw_flare
