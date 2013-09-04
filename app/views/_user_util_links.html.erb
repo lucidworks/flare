@@ -9,11 +9,6 @@
           <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path(:collection_id => params[:collection_id]) %></li>
           <li class="divider"></li>
         <% end %>
-        
-        <% if has_user_authentication_provider? and current_user %>
-          <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
-          <li class="divider"></li>
-        <% end %>
         <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
       </ul>
     </div>
