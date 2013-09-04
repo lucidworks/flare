@@ -13,4 +13,15 @@ module CatalogHelper
       else; t('blacklight.search.documents.total.other', :total_num => total_num).html_safe
     end
   end
+  
+  
+  def find2(*args)
+     path = args[2]
+    #path = blacklight_config.solr_path
+     response = blacklight_solr.get(path, :params=> args[1])
+     Blacklight::SolrResponse.new(force_to_utf8(response), args[1])
+   rescue Errno::ECONNREFUSED => e
+     raise Blacklight::Exceptions::ECONNREFUSED.new("Unable to connect to Solr instance using #{blacklight_solr.inspect}")
+  end
+  
 end

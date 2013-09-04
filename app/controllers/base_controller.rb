@@ -3,17 +3,14 @@ require 'net/http'
 class BaseController < ApplicationController
   abstract!
   
+  include Blacklight::Catalog
   include BaseHelper
-
+  
   helper_method :current_collection
 
   def current_collection
     @current_collection = lws_api_get("/collections/#{params[:collection_id]}")
     @current_collection.merge :roles => lws_api_get("/collections/#{params[:collection_id]}/roles")
-  end
-  
-  def build_collections
-    collections = lws_api_get('/collections')
   end
   
   private
