@@ -5,9 +5,11 @@
         <i class="icon-cog icon-black"></i><span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <% if current_or_guest_user && params[:collection_id] %>
-          <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path(:collection_id => params[:collection_id]) %></li>
-        <% end %>
+        <!--
+        <%# if current_or_guest_user && params[:collection_id] %>
+          <li><%#= link_to t('blacklight.header_links.bookmarks'), bookmarks_path(:collection_id => params[:collection_id]) %></li>
+        <%# end %>
+      -->
         <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
       </ul>
     </div>
