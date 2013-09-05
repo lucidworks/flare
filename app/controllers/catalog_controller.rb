@@ -188,7 +188,7 @@ class CatalogController < BaseController
     # end
     # end
     
-    super.merge :role => 'DEFAULT' # using DEFAULT until the above is incorporated
+    super.merge :role => 'DEFAULT', :'hl.simple.pre' => 'PRE', :'hl.simple.post' => 'POST' # using DEFAULT until the above is incorporated
   end
 
   # Overriding blacklight_solr_config, but this is how it is accessed

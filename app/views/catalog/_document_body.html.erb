@@ -1,10 +1,8 @@
 <div class="document-body">
-	<% #Load the body field, if there is one and display it -%>
-	<% index_fields(document).each do |solr_fname, field| -%>
-		<% if (render_index_field_label document, :field => solr_fname) == "body" -%>
-			<% if should_render_index_field? document, field %>
-				<p><%= render_index_field_value document, :field => solr_fname %></p>
-			<% end -%>
-		<% end -%>
-	<% end -%>
+	<%# Load the highlighted body field, if there is one and display it -%>
+	<%# Scrub the body results of any destructive HTML elements -%>
+	<p> <% document.highlight_field(:body).each do |snippet| %> 
+		  <%=html_escape(snippet).gsub('PRE','<b>').gsub('POST', '</b>').html_safe%>
+		<% end %>
+	</p>
 </div>
