@@ -22,7 +22,7 @@ en:
       next: 'Next &raquo;'
 
   blacklight:
-    application_name: 'Blacklight'
+    application_name: 'LucidWorks Flare'
 
     header_links:
       signin: 'Sign in'

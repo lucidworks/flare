@@ -20,33 +20,23 @@ LwsBlacklight::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # Defaults to nil and saved in location specified by config.assets.prefix
-  # config.assets.manifest = YOUR_PATH
-
   # Specifies the header that your server uses for sending files
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  config.action_dispatch.x_sendfile_header = "X-Sendfile"
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  # For nginx:
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
+  # If you have no front-end server that supports something like X-Sendfile,
+  # just comment this out and Rails will serve the files
 
-  # Prepend all log lines with the following tags
-  # config.log_tags = [ :subdomain, :uuid ]
-
-  # Use a different logger for distributed setups
-  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  # Setup the logger
+  config.logger = Log4jruby::Logger.get('lw_flare')
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server
+  # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
-
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -60,8 +50,18 @@ LwsBlacklight::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # modernizr.js is not part of the compiled application.js. Need to add it to 
+  # the list of files to precompile.
+  config.assets.precompile += ['modernizr.js']
 
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  # When the app is deployed as a web app in a J2EE container, the manifest can 
+  # no longer be found in its default location (/public/assets). Move the manifest 
+  # to a location that will work both at compile-time and at run-time.
+  config.assets.manifest = Rails.root.join("config")
+
+  # When deployed in a J2EE container, the webapp's context path needs to be 
+  # prepended to all asset URLs
+  # TODO: need to work on this to be able to work standalone or within an LWS "container"
+  config.assets.prefix = "lw_flare/assets"
 end

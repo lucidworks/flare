@@ -18,6 +18,7 @@ module Devise
         
         username = params[:user][:username]
         
+# TODO: currently we aren't using the LWS "user" system to log into the Flare/Blacklight app, but when that comes back into play we'll need some adjustments to leverage FlareConfig instead in order to pick up LWS environment variables that point to the user API, which is on the /admin app, not the main core API
         url ||= ENV['LWS_USER_API_BASE']  # defaults to http://127.0.0.1:8989
         resp = Net::HTTP.get_response(URI.parse("#{url || 'http://127.0.0.1:8989'}/api/users/#{username}"))
         

@@ -1,3 +1,5 @@
+require 'flare_config'
+
 class CollectionsController < BaseController
   layout 'lw_flare'
   
@@ -20,11 +22,6 @@ class CollectionsController < BaseController
   
   # Overriding blacklight_solr_config
   def blacklight_solr_config
-    # Make the Solr URL dynamic based on the users session set collection, removes need/use of config/solr.yml
-    # TODO: need to see how this will affect test runs
-    # See also use of ENV['LWS_...'] in collection_manager_controller
-    url ||= ENV['LWS_SOLR_URL']
-    url ||= "#{ENV['LWS_CORE_URL']}/solr" if ENV['LWS_CORE_URL']
-    {:url => "#{url || 'http://127.0.0.1:8888/solr/'}"}
+    {:url => "#{FlareConfig.solr_url}/" } # trailing slash needed?  
   end
 end

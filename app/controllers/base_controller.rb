@@ -1,4 +1,5 @@
 require 'net/http'
+require 'flare_config'
 
 class BaseController < ApplicationController
   abstract!
@@ -17,12 +18,7 @@ class BaseController < ApplicationController
   
   # TODO: refactor to use lucidworks-ruby gem
   def lws_api_get(path)
-    # See also catalog_controller for use of ENV['LWS_...']
-    url ||= ENV['LWS_API_URL']
-    url ||= "#{ENV['LWS_CORE_URL']}/api" if ENV['LWS_CORE_URL']
-    
-    # http://localhost:8888/api/collections
-    resp = Net::HTTP.get_response(URI.parse("#{url || 'http://127.0.0.1:8888/api'}#{path}"))
+    resp = Net::HTTP.get_response(URI.parse("#{FlareConfig.lws_api_url}#{path}"))
     result = JSON.parse(resp.body)
   end
 end

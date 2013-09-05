@@ -62,3 +62,13 @@ module LwsBlacklight
     config.assets.version = '1.0'
   end
 end
+
+# Map all Java system properties to env variables.
+# Example: The "solr.url" system property gets mapped to a "SOLR_URL" environment variable.
+# Doing this here instead of an initializer to be able to use the variables in database.yml.
+if defined?(JRUBY_VERSION)
+  java.lang.System.get_properties.each do |name, value|
+    ENV[name.parameterize('_').upcase] = value
+  end
+end
+
