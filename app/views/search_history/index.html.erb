@@ -1,6 +1,8 @@
+<% @page_title = t('flare.search_history.title', :application_name => 'Flare') %>
+
 <div id="content" class="span12">
   <div class="page-header">
-    <h1><%=t('blacklight.search_history.title')%></h1>
+    <h1><%=t('flare.search_history.title', :application_name => '')%></h1>
   </div>
   <%- if @searches.blank? -%>
     <div class="alert alert-info"><%= t('blacklight.search_history.no_history') %></div>
