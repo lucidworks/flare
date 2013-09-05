@@ -2,7 +2,7 @@ function renderBarGraph(dataObject) {
   var data = JSON.parse(dataObject);
   var valueLabelWidth = 40; // space reserved for value labels (right)
   var barHeight = 25; // height of one bar
-  var barLabelWidth = 150; // space reserved for bar labels
+  var barLabelWidth = 200; // space reserved for bar labels
   var barLabelPadding = 5; // padding between bar and bar labels (left)
   var gridLabelHeight = 18; // space reserved for gridline labels
   var gridChartOffset = 5; // space between start of grid and first bar

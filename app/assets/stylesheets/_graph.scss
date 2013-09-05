@@ -7,6 +7,7 @@
 -------------------------------------------------------------- */
 .d3bar {
   position: relative;
+  left: 50px;
   
   .bar:hover {
     @include opacity(60);

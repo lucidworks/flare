@@ -43,7 +43,7 @@ function renderPieGraph(dataObject) {
     
   var legend = d3.select(".d3pie").append("svg")
       .attr("class", "legend")
-      .attr("width", 200)
+      .attr("width", 300)
       .attr("height", radius * 2)
       .style("right", width * 3)
     .selectAll("g") 
