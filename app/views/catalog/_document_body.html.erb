@@ -1,8 +1,10 @@
 <div class="document-body">
 	<%# Load the highlighted body field, if there is one and display it -%>
 	<%# Scrub the body results of any destructive HTML elements -%>
-	<p> <% document.highlight_field(:body).each do |snippet| %> 
-		  <%=html_escape(snippet).gsub('PRE','<b>').gsub('POST', '</b>').html_safe%>
-		<% end %>
-	</p>
+	<% if document.has_highlight_field? :body %>
+		<p> <% document.highlight_field(:body).each do |snippet| %> 
+			  <%=html_escape(snippet).gsub('PRE','<b>').gsub('POST', '</b>').html_safe%>
+			<% end %>
+		</p>
+	<% end %>
 </div>
