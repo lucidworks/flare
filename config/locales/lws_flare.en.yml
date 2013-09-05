@@ -21,7 +21,7 @@ en:
       previous: '&laquo; Previous'
       next: 'Next &raquo;'
 
-  blacklight:
+  flare:
     application_name: 'LucidWorks Flare'
 
     header_links:
@@ -59,6 +59,9 @@ en:
       need_login: 'Please log in to manage and view your bookmarks.'
       list_title: 'Your Bookmarks'
       delete: 'Remove'
+      
+    collections:
+      title: '%{application_name} Collections'
 
     feedback:
       valid_name: 'A valid name is required'
@@ -76,7 +79,7 @@ en:
         action_confirm: 'Clear your search history?'
         success: 'Cleared your search history.'
         failure: 'There was a problem clearing your search history.'
-      title: 'Search History'
+      title: '%{application_name} Search History'
       no_history: 'You have no search history'
       recent: 'Your recent searches'
       forget: 'Forget'
