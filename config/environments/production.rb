@@ -1,3 +1,10 @@
+require 'java'
+
+require 'log4j-1.2.16.jar'
+require 'slf4j-api-1.6.4.jar'
+require 'slf4j-log4j12-1.6.4.jar'
+
+
 LwsBlacklight::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

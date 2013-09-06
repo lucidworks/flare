@@ -80,5 +80,6 @@ TODO.*
 rspec_results.html
 config/manifest.yml
 /public/assets
+/public/lw_flare
 /dist
 /target
