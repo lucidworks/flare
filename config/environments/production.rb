@@ -70,5 +70,5 @@ LwsBlacklight::Application.configure do
   # When deployed in a J2EE container, the webapp's context path needs to be 
   # prepended to all asset URLs
   # TODO: need to work on this to be able to work standalone or within an LWS "container"
-  config.assets.prefix = "lw_flare/assets"
+  config.assets.prefix = "flare/assets"
 end
