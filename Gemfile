@@ -11,6 +11,7 @@ platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
   gem 'warbler'
+  gem 'log4jruby'
 end
 
 group :assets do
