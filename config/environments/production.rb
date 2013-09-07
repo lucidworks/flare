@@ -67,8 +67,7 @@ LwsBlacklight::Application.configure do
   # to a location that will work both at compile-time and at run-time.
   config.assets.manifest = Rails.root.join("config")
 
-  # When deployed in a J2EE container, the webapp's context path needs to be 
+  # When deployed in a J2EE container, the webapp's context path needs to be
   # prepended to all asset URLs
-  # TODO: need to work on this to be able to work standalone or within an LWS "container"
-  config.assets.prefix = "flare/assets"
+  config.assets.prefix = "#{$servlet_context.context_path}/assets" if $servlet_context
 end
