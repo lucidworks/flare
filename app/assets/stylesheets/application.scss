@@ -10,13 +10,10 @@
  *
  */
 
-@import "bootstrap";
-@import "bootstrap-responsive";
-@import 'font-awesome';
+@import "bootstrap_and_overrides";
 @import "blacklight/blacklight";
 
 /*lws blacklight theme */
-@import "bootstrap-overrides";
 @import "base";
 @import "layout";
 @import "form";
