@@ -16,18 +16,22 @@ function addFacetSelectionBehavior() {
 function setFacetGroupActive() {
   var activeFacetGroup = localStorage.getItem('facets-group');
   
-  if (activeFacetGroup && ($("#facets").length > 0)) {
+  if (activeFacetGroup && ($("#facets .facets-group").length > 0)) { 
     $(activeFacetGroup).addClass('in');
     $(activeFacetGroup).prev().find('.accordion-toggle').removeClass('collapsed');
     $(activeFacetGroup).parents('.facets-group').addClass('active');
     setFacetFieldName($(activeFacetGroup).prev().find('.accordion-toggle'));
     renderFacetGraph();
+  } else {
+    	$('#graph-msg').removeClass('alert-info').text('No graph data available');
   }
 }
 
 function setFacetFieldName(node) {
-	var fieldName = $(node).attr('href').match(/^#(.+)/)[1];
-	$('#graph').attr('data-fieldname', fieldName);
+  if ($(node).length > 0) {
+  	var fieldName = $(node).attr('href').match(/^#(.+)/)[1];
+  	$('#graph').attr('data-fieldname', fieldName);
+  }
 }
 
 function setGraphType() {
@@ -64,7 +68,7 @@ function renderFacetGraph() {
 	  var fieldList = $('#facets').find('#' + fieldName).find('.list-facets');
 	  var JsonObj = buildFacetData(fieldList);
 	  
-	  if ($.isEmptyObject(JsonObj)) { 
+	  if ($.isEmptyObject(JsonObj)) {   
 	    $('#graph-msg').removeClass('alert-info').text('No graph data available');
 	  } else {
 	    $('#graph-msg').hide();
