@@ -10,7 +10,7 @@ module SearchHistoryConstraintsHelper
       render_search_to_s_element(facet_configuration_for_field(facet_field).label,
         value_list.collect do |value|
           render_filter_value(value)
-        end.join(content_tag(:span, " #{t('blacklight.and')} ", :class =>'filterSeparator')).html_safe
+        end.join(content_tag(:span, " #{t('flare.and')} ", :class =>'filterSeparator')).html_safe
       )
     end.join(" \n ").html_safe
   end

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="span3 center">
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {:class => 'form-signin'}) do |f| %>
-        <h2><%= t('blacklight.header_links.signin') %></h2>
+        <h2><%= t('flare.header_links.signin') %></h2>
         
         <%= f.text_field :username, :class => 'input-block-level', :autofocus => true, :placeholder => 'Username' %>
       
@@ -14,7 +14,7 @@
         <% end %>
       
         <%= button_tag :class => 'btn btn-primary' do %>
-          <%= t('blacklight.header_links.signin') %>
+          <%= t('flare.header_links.signin') %>
         <% end %>
       <% end %>
       

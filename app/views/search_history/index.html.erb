@@ -5,15 +5,15 @@
     <h1><%=t('flare.search_history.title', :application_name => '')%></h1>
   </div>
   <%- if @searches.blank? -%>
-    <div class="alert alert-info"><%= t('blacklight.search_history.no_history') %></div>
+    <div class="alert alert-info"><%= t('flare.search_history.no_history') %></div>
   <%- else -%>
     <div class="row">
       <div class="span10">
-        <h3><%= t('blacklight.search_history.recent') %></h3>
+        <h3><%= t('flare.search_history.recent') %></h3>
       </div>
       <div class="span2">
         <div class="btn-group table-options">
-          <%= link_to t('blacklight.search_history.clear.action_title'), clear_search_history_path, :method => :delete, :data => { :confirm => t('blacklight.search_history.clear.action_confirm') }, :class => 'btn btn-clear-search-history' %>
+          <%= link_to t('flare.search_history.clear.action_title'), clear_search_history_path, :method => :delete, :data => { :confirm => t('flare.search_history.clear.action_confirm') }, :class => 'btn btn-clear-search-history' %>
         </div>
       </div>
     </div>

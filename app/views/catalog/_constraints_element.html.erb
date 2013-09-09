@@ -13,9 +13,9 @@
   <%- unless options[:remove].blank? -%>
     <% accessible_remove_label =               
             if label.blank?
-              t('blacklight.search.filters.remove.value', :value => (options[:escape_value] ? h(value) : value))
+              t('flare.search.filters.remove.value', :value => (options[:escape_value] ? h(value) : value))
             else
-              t('blacklight.search.filters.remove.label', :label => (options[:escape_label] ? h(label) : label), :value => (options[:escape_value] ? h(value) : value))
+              t('flare.search.filters.remove.label', :label => (options[:escape_label] ? h(label) : label), :value => (options[:escape_value] ? h(value) : value))
             end              
     %>                
     <%= link_to content_tag(:span, accessible_remove_label, :class => 'is-invisible') + content_tag(:span, options[:escape_value] ? h(value) : raw(value), :class => 'filter-value') + content_tag(:i, '', :class => 'icon-remove'), options[:remove], :class=>'btn btn-link btn-filter' %>

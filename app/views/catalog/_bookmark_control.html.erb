@@ -8,13 +8,13 @@
   <% unless existing_bookmark %>  
 
       <%= form_tag( bookmark_path( :id => document.id ), :method => :put, :class => "bookmark_toggle", "data-doc-id" => document.id) do %>   
-        <%= submit_tag(t('blacklight.bookmarks.add.button'), :id => "bookmark_toggle_#{document.id.to_s.parameterize}", :class => "bookmark_add") %>
+        <%= submit_tag(t('flare.bookmarks.add.button'), :id => "bookmark_toggle_#{document.id.to_s.parameterize}", :class => "bookmark_add") %>
       <% end %>
   
   <% else %>
   
       <%= form_tag( bookmark_path( :id => document.id  ), :method => :delete, :class => "bookmark_toggle", "data-doc-id" => document.id) do %>  
-        <%= submit_tag(t('blacklight.bookmarks.remove.button'), :id => "bookmark_toggle_#{document.id.to_s.parameterize}", :class => "bookmark_remove") %>
+        <%= submit_tag(t('flare.bookmarks.remove.button'), :id => "bookmark_toggle_#{document.id.to_s.parameterize}", :class => "bookmark_remove") %>
       <% end %>
       
   <% end %>

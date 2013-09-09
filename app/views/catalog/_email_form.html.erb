@@ -5,7 +5,7 @@
     <%= render :partial=>'/flash_msg' %>
     <div class="control-group">
       <label class="control-label" for="to">
-        <%= t('blacklight.email.form.to') %>
+        <%= t('flare.email.form.to') %>
       </label>
       <div class="controls">
 
@@ -14,7 +14,7 @@
     </div>
     <div class="control-group">
       <label class="control-label" for="message">
-        <%= t('blacklight.email.form.message') %>
+        <%= t('flare.email.form.message') %>
       </label>
       <div class="controls">
       <%= text_area_tag :message, params[:message] %>
@@ -32,7 +32,7 @@
     <%- end -%>
   </div>
   <div class="modal-footer">
-  <button type="submit" class="btn btn-primary"> <%= t('blacklight.sms.form.submit') %></button>
+  <button type="submit" class="btn btn-primary"> <%= t('flare.sms.form.submit') %></button>
   </div>
 <% end %>
 <%- else %>

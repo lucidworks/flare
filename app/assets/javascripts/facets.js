@@ -4,7 +4,7 @@ function addFacetSelectionBehavior() {
       setFacetFieldName(e.target);
       renderFacetGraph(); 
       localStorage.setItem('facets-group', $(this).attr('href')); 
-    } else {
+    } else { 
       $('#graph-msg').show(); 
     	clearGraph();
     	$('#graph').attr("data-fieldname", '');

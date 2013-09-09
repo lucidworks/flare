@@ -95,9 +95,9 @@ class BookmarksController < CatalogController
       success ? head(:no_content) : render(:text => "", :status => "500")
     else
       if @bookmarks.length > 0 && success
-        flash[:notice] = I18n.t('blacklight.bookmarks.add.success', :count => @bookmarks.length)
+        flash[:notice] = I18n.t('flare.bookmarks.add.success', :count => @bookmarks.length)
       elsif @bookmarks.length > 0
-        flash[:error] = I18n.t('blacklight.bookmarks.add.failure', :count => @bookmarks.length)
+        flash[:error] = I18n.t('flare.bookmarks.add.failure', :count => @bookmarks.length)
       end
 
       redirect_to :back
@@ -113,9 +113,9 @@ class BookmarksController < CatalogController
     
     unless request.xhr?
       if success
-        flash[:notice] =  I18n.t('blacklight.bookmarks.remove.success')
+        flash[:notice] =  I18n.t('flare.bookmarks.remove.success')
       else
-        flash[:error] = I18n.t('blacklight.bookmarks.remove.failure')
+        flash[:error] = I18n.t('flare.bookmarks.remove.failure')
       end 
       redirect_to :back
     else
@@ -126,15 +126,15 @@ class BookmarksController < CatalogController
   
   def clear    
     if current_or_guest_user.bookmarks.clear
-      flash[:notice] = I18n.t('blacklight.bookmarks.clear.success') 
+      flash[:notice] = I18n.t('flare.bookmarks.clear.success') 
     else
-      flash[:error] = I18n.t('blacklight.bookmarks.clear.failure') 
+      flash[:error] = I18n.t('flare.bookmarks.clear.failure') 
     end
     redirect_to :action => "index", :collection_id => params[:collection_id]
   end
   
   protected
   def verify_user
-    flash[:notice] = I18n.t('blacklight.bookmarks.need_login') and raise Blacklight::Exceptions::AccessDenied  unless current_or_guest_user
+    flash[:notice] = I18n.t('flare.bookmarks.need_login') and raise Blacklight::Exceptions::AccessDenied  unless current_or_guest_user
   end
 end

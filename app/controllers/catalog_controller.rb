@@ -12,8 +12,8 @@ class CatalogController < BaseController
     if current_collection["name"].blank? 
       redirect_to root_path 
     else
-      extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') )
-      extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('blacklight.search.atom_feed') )
+      extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('flare.search.rss_feed') )
+      extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('flare.search.atom_feed') )
       
       (@response, @document_list) = get_search_results
       @filters = params[:f] || []
@@ -154,10 +154,10 @@ class CatalogController < BaseController
         if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
           email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
         else
-          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
+          flash[:error] = I18n.t('flare.email.errors.to.invalid', :to => params[:to])
         end
       else
-        flash[:error] = I18n.t('blacklight.email.errors.to.blank')
+        flash[:error] = I18n.t('flare.email.errors.to.blank')
       end
 
       unless flash[:error]

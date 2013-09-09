@@ -3,7 +3,7 @@
 </div><!--/well -->
 
 <div id="content" class="span9">
-  <h2 class="hide-text top-content-title"><%= t('blacklight.search.search_results_header') %></h2>
+  <h2 class="hide-text top-content-title"><%= t('flare.search.search_results_header') %></h2>
 
   <% @page_title = t('flare.search.title', :application_name => 'Flare') %>
 
@@ -22,7 +22,7 @@
     <div class="tab-pane fade in active" id="view-list">
       <%= render 'sort_and_per_page' %>
     
-      <h2 class="hide-text"><%= t('blacklight.search.search_results') %></h2>
+      <h2 class="hide-text"><%= t('flare.search.search_results') %></h2>
       
       <%= render_document_index %>
     
