@@ -26,5 +26,6 @@ LwsBlacklight::Application.routes.draw do
   
   devise_for :users
   
+  get "collections", :to => "collections#index"
   root :to => "collections#index"
 end
