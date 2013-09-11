@@ -22,8 +22,10 @@ function setFacetGroupActive() {
     $(activeFacetGroup).parents('.facets-group').addClass('active');
     setFacetFieldName($(activeFacetGroup).prev().find('.accordion-toggle'));
     renderFacetGraph();
-  } else {
-    	$('#graph-msg').removeClass('alert-info').text('No graph data available');
+  } else if ($("#facets .facets-group").length > 0) {
+    $('#graph-msg').show();
+  } else {  
+    $('#graph-msg').removeClass('alert-info').text('No graph data available');
   }
 }
 
