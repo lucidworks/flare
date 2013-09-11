@@ -55,7 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    devise (3.0.3)
+    devise (3.0.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -87,10 +87,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    marc (0.6.0)
+    marc (0.7.1)
     mime-types (1.25)
     mini_portile (0.5.1)
-    multi_json (1.7.9)
+    multi_json (1.8.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     nokogiri (1.6.0-java)
@@ -165,13 +165,14 @@ DEPENDENCIES
   blacklight
   bootstrap-sass
   coffee-rails (~> 3.2.1)
-  devise
+  devise (= 3.0.1)
   devise-guests (~> 0.3)
   font-awesome-sass-rails (~> 3.0.2.2)
   jquery-rails
   jruby-openssl
   log4jruby
   rails (= 3.2.13)
+  rubyzip (< 1.0.0)
   sass-rails (~> 3.2.3)
   therubyrhino
   uglifier (>= 1.0.3)

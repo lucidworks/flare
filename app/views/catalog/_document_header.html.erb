@@ -2,7 +2,7 @@
    # header bar for doc items in index view -%>
 <div class="documentHeader clearfix">
   <% # main title container for doc partial view -%>
-     <%- title_link = document[:data_source_type] == 'Web' ? document.id : "#{FlareConfig.lws_admin_url}/collections/#{current_collection["name"]}/document?id=#{document.id}" %>
+     <%- title_link = document[:data_source_type] == 'Web' ? document.id : "#{FlareConfig.lws_admin_url}/collections/#{current_collection["name"]}/document?id=#{u(document.id)}" %>
   
     <h4 class="document-title span7">
       <span class="document-count"><%= t('flare.search.documents.counter', :counter => (document_counter + 1 + @response.params[:start].to_i)) %></span>
