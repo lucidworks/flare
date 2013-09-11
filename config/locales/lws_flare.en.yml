@@ -72,6 +72,9 @@ en:
         title: 'Please fix the following form errors:'
       complete:
         title: 'Thank-you for your feedback'
+        
+    navigation:
+      apps: Apps
 
     search_history:
       clear:
