@@ -10,8 +10,8 @@ class BaseController < ApplicationController
   helper_method :current_collection
 
   def current_collection
-    @current_collection = lws_api_get("/collections/#{params[:collection_id]}")
-    @current_collection.merge :roles => lws_api_get("/collections/#{params[:collection_id]}/roles")
+    @current_collection = "collection1"
+    #@current_collection.merge :roles => lws_api_get("/collections/#{params[:collection_id]}/roles")
   end
   
   private

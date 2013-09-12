@@ -1,21 +1,46 @@
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-		  <div class="row">
-		    <div class="span3">
-		      <a class="brand" href="<%= root_path %>"><img src="<%=asset_url('logo.png')%>" alt="LucidWorks" /></a>
-		    </div>
-		    <%- unless devise_controller? %>
-    	  	<div class="span6" id="searchbar">
-        	  <% unless @current_collection.blank? %>
-        	    <%= render_search_bar %>
-        	  <% end %>
-      	  </div>
-    		  <div class="span3">
-            <%= render :partial=>'/user_util_links' %>
-          </div>
-        <% end %>
+<style>
+    #mnuBar2 { list-style: none outside none; margin: 0; vertical-align:middle; float:left; z-index: 51; }
+    #mnuBar2 ul { font-family: 'Source Sans Pro'; font-weight: 400; }
+    #mnuBar2 li { font-size: 16px; color: #0f204b; float: left; margin: 0 0 0 17px; height: 20px; cursor: pointer; }
+    #mnuBar2 li a {text-decoration: none; font-weight: normal; }
+    #mnuBar2 li a:hover { text-decoration: none; color:#ffb612; }
+    
+    #header-top2 { width: 1170px; margin: 0 auto 0 auto; }
+    #footer2 { width: 1170px; margin: 0 auto 0 auto; padding: 22px 0 22px 0; }
+    #footer2 p { color:#fff; font-size: 8pt; margin-bottom: 3px; }
+    #footer2 .terms-widget a { color: #fff; text-decoration:none; }
+    #footer2 .terms-widget a:hover { color: #ffb612; }
+    #footer2 .social-widget { float:right; width:210px; }
+</style>
+<div class="header" id="header">
+<div id="header-top2">
+ <div id="header-top-nav">
+   <div id="downloads"><a href="http://staging.lucidworks.com/download/">Downloads</a></div>
+   <ul>
+     <li><a href="http://staging.lucidworks.com/marketplace/">Marketplace</a></li>
+     <li><a href="http://staging.lucidworks.com/blog-listing/">Blogs</a></li>
+     <li><a href="http://staging.lucidworks.com/contacts/">Contact</a></li>
+   </ul>
+ </div><div class="clear"></div>
+ <div id="menuarea">
+   <img id="logo" src="http://staging.lucidworks.com/images/logo.png" onclick="javascript:window.location.href='http://staging.lucidworks.com/'" />
+   <div id="menus">
+      <div id="searcharea">
+       <div class="searchctrl">
+         <%= render_search_bar %>
+       </div>
+     </div>
+     
+     <div id="megamenu">
+       <ul id="mnuBar2">
+        <li ><a href="http://staging.lucidworks.com/product-overview">Products</a></li>
+        <li ><a href="http://staging.lucidworks.com/support-services">Support & Services</a></li>
+        <li><a href="http://staging.lucidworks.com/about-us">Company</a></li>
+        <li><a href="http://staging.lucidworks.com/resources">Resources</a></li>
+       </ul>
       </div>
-		</div>
-	</div>
+     </div>
+     <div class="clear"></div>
+  </div>
+</div>
 </div>

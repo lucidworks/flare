@@ -13,7 +13,7 @@ LwsBlacklight::Application.routes.draw do
   # get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
 
   # LWS collection selection
-  get 'catalog/:collection_id', :to => 'catalog#index', :as => 'collection' 
+  #get 'catalog/:collection_id', :to => 'catalog#index', :as => 'collection'
 
   # NOT /bookmarks/file:/Users/erikhatcher/Documents/Test/LucidWorks%20Enterprise%20User%20Guide.pdf
   # but rather PUT /bookmarks?id=.... etc
@@ -26,6 +26,6 @@ LwsBlacklight::Application.routes.draw do
   
   devise_for :users
   
-  get "collections", :to => "collections#index"
-  root :to => "collections#index"
+  #get "collections", :to => "collections#index"
+  root :to => "catalog#index"
 end
