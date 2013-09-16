@@ -30,6 +30,11 @@
          <%= render_search_bar %>
        </div>
      </div>
+    <script>
+     $(document).ready(function(){
+         $('#searchclick').click(function(e) { document.forms["searchform"].submit(); });
+     });
+     </script>
      
      <div id="megamenu">
        <ul id="mnuBar2">
