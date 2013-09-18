@@ -82,7 +82,7 @@ Warbler::Config.new do |config|
 
   # Name of the archive (without the extension). Defaults to the basename
   # of the project directory.
-  config.jar_name = 'lw_flare'
+  config.jar_name = 'search'
 
   # Name of the MANIFEST.MF template for the war file. Defaults to a simple
   # MANIFEST.MF that contains the version of Warbler used to create the war file.

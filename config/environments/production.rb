@@ -3,6 +3,7 @@ require 'java'
 require 'log4j-1.2.16.jar'
 require 'slf4j-api-1.6.4.jar'
 require 'slf4j-log4j12-1.6.4.jar'
+require 'log4jruby'
 
 
 LwsBlacklight::Application.configure do
@@ -38,6 +39,7 @@ LwsBlacklight::Application.configure do
 
   # Setup the logger
   config.logger = Log4jruby::Logger.get('lw_flare')
+
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store

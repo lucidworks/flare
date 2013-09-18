@@ -21,7 +21,11 @@
   <div class="tab-content">
     <div class="tab-pane fade in active" id="view-list">
       <%= render 'sort_and_per_page' %>
-    
+
+      <div id="resetSearch" class="btn-group" style="margin-top:-5px; float:right;">
+        <a  class="btn" href= "/search/">Reset my search</a>
+      </div>
+
       <h2 class="hide-text"><%= t('flare.search.search_results') %></h2>
       
       <%= render_document_index %>
