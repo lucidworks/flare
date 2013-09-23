@@ -17,4 +17,8 @@ module FacetsHelper
     content_tag(:span, render_facet_value(facet_solr_field, item, :suppress_link => true)) +
      link_to(content_tag(:i, '', :class => "icon-remove") + content_tag(:span, '[remove]', :class => 'hide-text'), remove_facet_params(facet_solr_field, item, params), :class=>"remove")
   end
+
+  def format_faceting(facet_name)
+    facet_name.sub(/ Display$/, "")
+  end
 end
