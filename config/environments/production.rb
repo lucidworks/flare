@@ -1,10 +1,3 @@
-require 'java'
-
-require 'log4j-1.2.16.jar'
-require 'slf4j-api-1.6.4.jar'
-require 'slf4j-log4j12-1.6.4.jar'
-
-
 LwsBlacklight::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -37,7 +30,7 @@ LwsBlacklight::Application.configure do
   # just comment this out and Rails will serve the files
 
   # Setup the logger
-  config.logger = Log4jruby::Logger.get('lw_flare')
+  config.logger = Log4jruby::Logger.get('flare')
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
