@@ -80,7 +80,6 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    log4jruby (0.5.0-java)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -166,7 +165,6 @@ DEPENDENCIES
   devise-guests (~> 0.3)
   font-awesome-sass-rails (~> 3.0.2.2)
   jquery-rails
-  log4jruby
   rails (= 3.2.13)
   rubyzip (= 0.9.9)
   sass-rails (~> 3.2.3)

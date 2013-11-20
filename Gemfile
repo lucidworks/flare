@@ -17,7 +17,7 @@ platforms :jruby do
   gem 'rubyzip', '0.9.9'
   
   gem 'warbler', '1.4.0'
-  gem 'log4jruby'
+#  gem 'log4jruby'
 end
 
 group :assets do

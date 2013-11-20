@@ -30,7 +30,7 @@ LwsBlacklight::Application.configure do
   # just comment this out and Rails will serve the files
 
   # Setup the logger
-  config.logger = Log4jruby::Logger.get('flare')
+#  config.logger = Log4jruby::Logger.get('flare')
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
