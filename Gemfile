@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 gem "devise", '3.0.1'
 gem "devise-guests", "~> 0.3"
 gem "bootstrap-sass"
