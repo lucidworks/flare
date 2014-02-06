@@ -30,8 +30,8 @@ enhanced to leverage the value added capabilities of the LucidWorks Search platf
 # Quickstart
 
 1. Install LucidWorks Search
-2. Install LWS-Blacklight
-3. Run LWS-Blacklight
+2. Install Flare
+3. Run Flare
 
 Use this to add the LucidWorks website as a web data source to your starting collection:
 
@@ -56,16 +56,16 @@ the same application will be spiffy.
 
 # For developers
 
-    * git clone github/LucidWorks/lws_blacklight
+    * git clone github/LucidWorks/flare
 
-    * lws_blacklight git:(master) ✗ java -version
+    * flare git:(master) ✗ java -version
     java version "1.7.0_13"
     Java(TM) SE Runtime Environment (build 1.7.0_13-b20)
     Java HotSpot(TM) 64-Bit Server VM (build 23.7-b01, mixed mode)
-    * lws_blacklight git:(master) ✗ export PATH=$HOME/bin/jruby-1.7.4/bin:$PATH
-    * lws_blacklight git:(master) ✗ jruby -v
+    * flare git:(master) ✗ export PATH=$HOME/bin/jruby-1.7.4/bin:$PATH
+    * flare git:(master) ✗ jruby -v
     jruby 1.7.4 (1.9.3p392) 2013-05-16 2390d3b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_13-b20 [darwin-x86_64]
-    * lws_blacklight git:(master) ✗ jruby -S rails server  
+    * flare git:(master) ✗ jruby -S rails server  
     => Booting WEBrick
     => Rails 3.2.13 application starting in development on http://0.0.0.0:3000
     => Call with -d to detach
