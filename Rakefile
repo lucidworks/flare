@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-LwsBlacklight::Application.load_tasks
+Flare::Application.load_tasks
