@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '3.2.18'
 gem "devise", '3.0.1'
 gem "devise-guests", "~> 0.3"
 gem "bootstrap-sass"
 gem 'blacklight'
 gem "unicode", :platforms => [:mri_18, :mri_19]
+gem "httparty", "0.13.1"
 
 platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
@@ -16,7 +17,7 @@ platforms :jruby do
   #   - https://github.com/jruby/warbler/issues/180  
   gem 'rubyzip', '0.9.9'
   
-  gem 'warbler', '1.4.0'
+  gem 'warbler', '1.4.3'
 #  gem 'log4jruby'
 end
 
