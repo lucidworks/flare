@@ -15,7 +15,7 @@ class CatalogController < BaseController
       extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('flare.search.rss_feed') )
       extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('flare.search.atom_feed') )
       
-      (@response, @document_list) = get_search_results
+      (@response, @document_list) = get_search_results(params, {}, {headers: solr_headers})
       @filters = params[:f] || []
       
       respond_to do |format|

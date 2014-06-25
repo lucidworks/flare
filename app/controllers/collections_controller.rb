@@ -14,7 +14,7 @@ class CollectionsController < BaseController
   
   def find(*args)
     path = "#{args[2]}/#{blacklight_config.solr_path}"
-    response = blacklight_solr.get(path, :params=> args[1])
+    response = blacklight_solr.get(path, {:params=> args[1], headers: solr_headers})
     Blacklight::SolrResponse.new(force_to_utf8(response), args[1])
     rescue Errno::ECONNREFUSED => e
     raise Blacklight::Exceptions::ECONNREFUSED.new("Unable to connect to Solr instance using #{blacklight_solr.inspect}")
