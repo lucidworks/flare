@@ -4,12 +4,12 @@ class CollectionsController < BaseController
   layout 'lw_flare'
   
   def index
-    @collections = lws_api_get('/collections')
+    @collections = lws_api_get('/collections') || []
     
     @collections.each do |collection| 
       resp = find(blacklight_config.qt, {:q =>"*:*", :qt => ""}, collection["name"])
       collection["numFound"] = resp.response["numFound"]
-    end
+    end unless @collections.blank?
   end
   
   def find(*args)
