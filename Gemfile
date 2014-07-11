@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.18'
+gem 'rails', '3.2.19'
 gem "devise", '3.0.1'
 gem "devise-guests", "~> 0.3"
 gem "bootstrap-sass"
@@ -17,7 +17,7 @@ platforms :jruby do
   #   - https://github.com/jruby/warbler/issues/180  
   gem 'rubyzip', '0.9.9'
   
-  gem 'warbler', '1.4.3'
+  gem 'warbler', '1.4.0'
 #  gem 'log4jruby'
 end
 
