@@ -12,6 +12,7 @@ platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
 #  gem 'jruby-openssl', no longer needed since JRuby 1.7.x
 
+  gem "jruby-rack", "1.1.13.3", :require => false # 1.1.14 causes assets to fail in production with content length errors
   # something fishy with rubyzip, see the following:
   #   - http://stackoverflow.com/questions/18736166/warbler-no-such-file-to-load-zip-zip
   #   - https://github.com/jruby/warbler/issues/180  
